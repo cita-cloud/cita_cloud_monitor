@@ -1,0 +1,14 @@
+click==7.1.2
+coloredlogs==15.0
+Flask==1.0.3
+grpcio==1.36.1
+grpcio-tools==1.36.1
+humanfriendly==9.1
+itsdangerous==1.1.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+prometheus-client==0.5.0
+protobuf==3.15.6
+psutil==5.6.6
+six==1.15.0
+Werkzeug==1.0.1

@@ -22,12 +22,7 @@ scrape_configs:
     - targets: ['citamon_agent_host_ip:1920']
     metrics_path: "/metrics/process"
 
-  - job_name: 'rabbitmq_exporter'
-    static_configs:
-    - targets: ['citamon_agent_host_ip:1920']
-    metrics_path: "/metrics/rabbitmq"
-
   - job_name: 'cita_exporter'
     static_configs:
     - targets: ['citamon_agent_host_ip:1920']
-    metrics_path: "/metrics/cita"
+    metrics_path: "/metrics/citacloud"

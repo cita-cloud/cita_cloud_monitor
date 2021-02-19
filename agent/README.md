@@ -1,11 +1,15 @@
 # Monitor Agent
 
 ## 概要
+
 Monitor Agent 是使用 `Python` 作为脚本语言，使用 `cita-cli` 工具对 `CITA` 服务的状态进行查询，使用 `prometheus-client` 模块将数据格式化输出，使用 `Flask` 工具提供外部访问接口，将格式化后的数据直接进行展示；
 
 ## 部署
+
 为了保证数据采集的基础环境一致性，数据采集进程均使用 `docker` 方式部署;
+
 ### 容器编排部署
+
 如果你希望采集关于运行 CITA 服务的主机资源更多的信息，你可以使用 `docker-compose` 来进行批量部署多个数据采集进程；
 * prom/node-exporter （获取主机资源 | 参考: https://github.com/prometheus/node_exporter）
 * ncabatoff/process-exporter （获取指定进程资源 | 参考: https://github.com/rberwald/process-exporter）
@@ -13,6 +17,7 @@ Monitor Agent 是使用 `Python` 作为脚本语言，使用 `cita-cli` 工具�
 * citamon/agent-cita-exporter
 
 #### 步骤
+
 1、自定义采集信息
 ```
 cd agent
@@ -63,9 +68,11 @@ docker-compose down
 ```
 
 ### 单个容器部署
+
 如果你希望只采集 CITA 服务的运行状态信息，你可以使用 `docker` 命令来运行一个数据采集容器；
 
 #### 步骤
+
 1、编译镜像
 ```
 cd ./cita_exporter
@@ -96,6 +103,7 @@ curl http://localhost:1920/metrics/cita
 ```
 
 ### 错误信息
+
 1、容器启动失败
 * 使用 `docker-compose logs container-name` or `docker logs container-name` 查看容器错误信息，一般原因是参数传入有误
 
