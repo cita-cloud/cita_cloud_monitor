@@ -14,15 +14,13 @@ rule_files:
 scrape_configs:
   - job_name: 'host_exporter'
     static_configs:
-    - targets: ['citamon_agent_host_ip:1920']
-    metrics_path: "/metrics/host"
+    - targets: ['citamon_agent_host_ip:49100']
 
   - job_name: 'process_exporter'
     static_configs:
-    - targets: ['citamon_agent_host_ip:1920']
-    metrics_path: "/metrics/process"
+    - targets: ['citamon_agent_host_ip:49256']
 
   - job_name: 'cita_exporter'
     static_configs:
-    - targets: ['citamon_agent_host_ip:1920']
-    metrics_path: "/metrics/citacloud"
+    - targets: ['citamon_agent_host_ip:49349']
+

@@ -307,7 +307,7 @@ if __name__ == "__main__":
     # parse command line arguments.
     parser = argparse.ArgumentParser()
     parser.add_argument("--exporter-host", default="0.0.0.0", help="Exporter listen address")
-    parser.add_argument("--exporter-port", default="1923", help="Exporter listen port")
+    parser.add_argument("--exporter-port", default="9349", help="Exporter listen port")
     parser.add_argument("--node-grpc-host", required=True, help="CITA Cloud Node gRPC host")
     parser.add_argument("--node-grpc-port", required=True, help="CITA Cloud Node gRPC port")
     parser.add_argument("--node-data-folder", required=True, help="CITA Cloud Node Data Folder")

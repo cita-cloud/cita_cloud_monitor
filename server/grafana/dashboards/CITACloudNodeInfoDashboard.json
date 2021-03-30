@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1616984750372,
+  "iteration": 1617074102337,
   "links": [
     {
       "icon": "external link",
@@ -1290,7 +1290,7 @@
       "content": "<center>\n<br>\n<h2>$GenesisBlockNumberHash</h2>\n</center>",
       "gridPos": {
         "h": 3,
-        "w": 12,
+        "w": 13,
         "x": 9,
         "y": 29
       },
@@ -1304,8 +1304,8 @@
       "content": "<center>\n<br>\n<h2>$Version</h2>\n</center>",
       "gridPos": {
         "h": 3,
-        "w": 3,
-        "x": 21,
+        "w": 2,
+        "x": 22,
         "y": 29
       },
       "id": 23,
@@ -2366,5 +2366,5 @@
   "timezone": "browser",
   "title": "CITA Cloud Node Exporter Dashboard",
   "uid": "VXdVrO3iz1",
-  "version": 5
+  "version": 1
 }
