@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1617074102337,
+  "iteration": 1617088747293,
   "links": [
     {
       "icon": "external link",
@@ -1717,9 +1717,9 @@
       "type": "row"
     },
     {
-      "content": "<center>\n<br>\n<h3>$HostName</h3>\n</center>",
+      "content": "<center>\n<br>\n<h1><h1>$HostName</h1>\n</center>",
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 8,
         "x": 0,
         "y": 45
@@ -1731,10 +1731,10 @@
       "type": "text"
     },
     {
-      "content": "<center>\n<br><br>\n<h3>$HostPlatform</h3>\n</center>",
+      "content": "<center>\n<br>\n<h1>$HostPlatform</h1>\n</center>",
       "gridPos": {
-        "h": 4,
-        "w": 8,
+        "h": 3,
+        "w": 11,
         "x": 8,
         "y": 45
       },
@@ -1783,8 +1783,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "0x43d3f689ec4d0f0296f13d2210c4c60b23dbb403",
-          "value": "0x43d3f689ec4d0f0296f13d2210c4c60b23dbb403"
+          "text": "0xe0bd8e627d4abfab5084da09765c13b19e336f7c",
+          "value": "0xe0bd8e627d4abfab5084da09765c13b19e336f7c"
         },
         "datasource": "Prometheus",
         "definition": "label_values(Node_Get_LastBlockNumber{job=~\"$job\"},NodeID) ",
@@ -1835,8 +1835,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "9100",
-          "value": "9100"
+          "text": "49349",
+          "value": "49349"
         },
         "datasource": "Prometheus",
         "definition": "label_values(Node_Get_LastBlockNumber{job=~\"$job\",NodeID=~\"$node_id\"},instance)",
@@ -2112,8 +2112,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "Linux-4.15.0-118-generic-x86_64-with-glibc2.27",
-          "value": "Linux-4.15.0-118-generic-x86_64-with-glibc2.27"
+          "text": "Linux-4.15.0-118-generic-x86_64-with-glibc2.28",
+          "value": "Linux-4.15.0-118-generic-x86_64-with-glibc2.28"
         },
         "datasource": "Prometheus",
         "definition": "label_values(Node_Get_LastBlockNumberDetails{instance=~'$node:$port'},HostPlatform) ",
@@ -2137,8 +2137,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "k8s02",
-          "value": "k8s02"
+          "text": "nodehostname",
+          "value": "nodehostname"
         },
         "datasource": "Prometheus",
         "definition": "label_values(Node_Get_LastBlockNumberDetails{instance=~'$node:$port'},HostName) ",
@@ -2162,8 +2162,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "0x43d3f689ec4d0f0296f13d2210c4c60b23dbb403",
-          "value": "0x43d3f689ec4d0f0296f13d2210c4c60b23dbb403"
+          "text": "0xe0bd8e627d4abfab5084da09765c13b19e336f7c",
+          "value": "0xe0bd8e627d4abfab5084da09765c13b19e336f7c"
         },
         "datasource": "Prometheus",
         "definition": "label_values(Node_Get_LastBlockNumber{instance=~'$node:$port'},NodeAddress) ",
@@ -2212,8 +2212,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "20157",
-          "value": "20157"
+          "text": "30972",
+          "value": "30972"
         },
         "datasource": "Prometheus",
         "definition": "label_values(Node_Get_LastBlockNumber{instance=~'$node:$port'},NodePort) ",
@@ -2237,8 +2237,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "35022",
-          "value": "35022"
+          "text": "3599",
+          "value": "3599"
         },
         "datasource": "Prometheus",
         "definition": "query_result(max(Node_Get_LastBlockNumber{job=\"$job\"}))",
@@ -2366,5 +2366,5 @@
   "timezone": "browser",
   "title": "CITA Cloud Node Exporter Dashboard",
   "uid": "VXdVrO3iz1",
-  "version": 1
+  "version": 2
 }
