@@ -16,7 +16,7 @@ RUN make
 FROM scratch
 
 COPY --from=build /go/src/github.com/ncabatoff/process-exporter/process-exporter /bin/process-exporter
-
+ADD ./config /config
 # Run the process-exporter command by default when the container starts.
 ENTRYPOINT ["/bin/process-exporter"]
 

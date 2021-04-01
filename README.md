@@ -1,8 +1,6 @@
 # CITA-Monitor
 
-[EN](README.md) | [CN](README-CN.md)
-
-A blockchain monitoring system for [CITA](https://github.com/citahub/cita), using [Prometheus](https://prometheus.io) to store the monitoring and performance metrics and [Grafana](https://grafana.com/grafana) to visualize these metrics.
+A blockchain monitoring system for [CITA Cloud](https://github.com/cita-cloud), using [Prometheus](https://prometheus.io) to store the monitoring and performance metrics and [Grafana](https://grafana.com/grafana) to visualize these metrics.
 
 Metrics are including blockchain data, process status, host info like CPU/memory/disk usage etc.
 
@@ -21,17 +19,12 @@ CITA Node Info Dashboard Demo
 Host Info Dashboard Demo
 ![host-info-dashboard-demo-fs8](https://user-images.githubusercontent.com/71397/57681906-3ab08e80-7663-11e9-9229-76b85c0eaaa4.png)
 
-RabbitMQ Dashboard Demo
-![rabbitmq-dashboard-demo-fs8](https://user-images.githubusercontent.com/71397/57682140-b0b4f580-7663-11e9-8db0-c4e2a0e29606.png)
-
 ## Feature List
 
-* CITA service process monitoring
+* CITA Cloud service process monitoring
   * CITA microservices and RabbitMQ process running status, CPU, memory usage, IO
 * Blockchain data health monitoring
   * block height history, block interval, block interval history, quota, transaction history volume, TPS, disk occupancy, data size growth trend
-* Running environment monitoring
-  * System load, CPU, memory, disk space usage, network traffic, TCP connections, etc. 
 * System warning notification
   * [Alert Policies](docs/alert_policies.md)
   * Support email notification, Slack notification, SMS notification (Pro version)
@@ -39,8 +32,6 @@ RabbitMQ Dashboard Demo
   * Number of connected nodes, network topology, geographic location, etc.
 * Request Identity Sources & Rate Limiting (Pro version)
   * Identify request sources, tools, user agent; limit the amount of JSONRPC requests by IP address to defence malicious attack.
-* JSONRPC interface call analysis (Pro version)
-  * Statistical analysis of the request time and number of the RPC method
 
 ### Metrics of Dashboards
 
@@ -49,16 +40,14 @@ RabbitMQ Dashboard Demo
   * Monitoring process status for each node
   * CPU usage for each node
   * Node list
-* CITA Node Info Dashboard
+
+* CITA Cloud Node Info Dashboard
   * CITA Meta Data - Chain configuration information，such as Chain Name, creation time, etc.
   * Chain Info - The latest block height, consensus node number, consensus node block history.
   * Node Info - More detailed about certain node, including block data, running environment, software information
-* Host Info Dashboard
-  * Host information running on certain node, including system load, CPU, memory, hard disk usage, network traffic
+
 * Process Info Dashboard
   * Running status, CPU, memory, and IO of microservice process for certain node
-* RabbitMQ Dashboard
-  * Running status, channels, consumers, connections, queues of RabbitMQ
 
 More details can be found in [Monitoring Indicator Information](docs/information_architecture.md)
 
@@ -85,12 +74,13 @@ For installing agent, read [agent/README.md](agent/README.md)
 
 ### Ports default config
 
-* CITA-Monitor server
+* CITA Cloud Monitor server
     * Prometheus Alertmanager: 1917
     * Prometheus Console: 1918
     * Grafana: 1919
-* CITA-Monitor agent
-    * agent_proxy_exporter：1920
+* CITA Cloud Monitor agent
+    * ciatcloud_exporter: 49349
+	* process_exporter: 49256
 
 ## Contributing
 

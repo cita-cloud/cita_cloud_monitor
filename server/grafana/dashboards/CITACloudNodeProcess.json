@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": 249,
   "graphTooltip": 1,
-  "iteration": 1555036776018,
+  "iteration": 1617239677835,
   "links": [
     {
       "asDropdown": false,
@@ -673,8 +673,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "116.62.221.89",
-          "value": "116.62.221.89"
+          "text": "192.168.10.193",
+          "value": "192.168.10.193"
         },
         "datasource": "Prometheus",
         "definition": "label_values(up{job=~'process_exporter'},instance)",
@@ -752,7 +752,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Process Info Dashboard",
+  "title": "CITA Cloud Node Process Exporter Dashboard",
   "uid": "eKkL1dqiz",
   "version": 1
 }

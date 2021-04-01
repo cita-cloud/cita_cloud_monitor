@@ -73,6 +73,7 @@ http://*.*.*.*:1917
 ```
 
 ### 错误信息
+
 1、容器启动失败
 * 使用 `docker logs container-name` 查看容器错误信息，一般原因是参数传入有误
 
@@ -88,6 +89,7 @@ http://*.*.*.*:1917
 * 查看 `Prometheus` 数据采集是否正常
 
 ### alert rules
+
 示例：
 ```
   - alert: Exporter_Status_Error

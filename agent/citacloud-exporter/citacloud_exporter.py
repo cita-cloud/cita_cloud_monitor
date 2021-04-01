@@ -5,7 +5,7 @@ This is the exporter script for the CITA Cloud Monitor monitoring system.
 The data on the chain is obtained via gRPC and then pulled by prometheus.
 """
 
-# pylint: disable=global-statement, too-many-locals, too-many-branches, too-many-statements, fixme
+# pylint: disable=global-statement, too-many-locals, too-many-branches, too-many-statements, fixme, import-error, line-too-long 
 # TODO: refactor codes to pass pylint
 
 import json, base64
@@ -13,24 +13,22 @@ import os
 import sys
 import time
 import platform
-from datetime import datetime, timedelta
-import psutil
 import prometheus_client
 from prometheus_client.core import CollectorRegistry, Gauge
 from flask import Response, Flask
 import argparse
+import coloredlogs, logging
 
 # grpc
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/grpcstub")
 import grpc
+from grpc import _grpcio_metadata
 import common_pb2 as common
 import controller_pb2 as CitaCloudController
 import controller_pb2_grpc as CitaCloudControllerGrpc
 from google.protobuf.json_format import MessageToJson
-from grpc import _grpcio_metadata
 
 # logging
-import coloredlogs, logging
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
@@ -44,7 +42,7 @@ GRPC_VERSION      = _grpcio_metadata.__version__
 NODE_DATA_FOLDER  = None
 EXPORTER_PLATFORM = platform.platform()
 AGENT_NAME        = platform.node()
-    
+
 # exporter label variable
 SERVICE_STATUS_TITLE = "[ value is 1 or 0 ] \
 Check the running status of the CITA service, service up is 1 or down is 0."
@@ -148,14 +146,14 @@ class GrpcWrapper():
             if (node_address.startswith("0x")):
                 node_address = hex(int(node_address, 16))
             return node_address
-            
+
 
 # flask object
 @NODE_FLASK.route("/metrics")
 def metrics():
     """Agent execution function"""
-    
-    # tags definition 
+
+    # tags definition
     registry = CollectorRegistry(auto_describe=False)
     service_status = Gauge("Node_Get_ServiceStatus", SERVICE_STATUS_TITLE, ["NodeIP", "NodePort"], registry=registry)
     genesis_block_details = Gauge("Node_Get_GenesisBlockNumberDetails", GENESIS_BLOCK_DETAILS_TITLE, ["NodeIP", "NodePort", "GenesisBlockNumberHash"], registry=registry)
@@ -182,12 +180,12 @@ def metrics():
     block_quota_limit = Gauge("Node_Get_BlockQuotaLimit", BLOCK_QUOTA_LIMIT_TITLE, ["NodeIP", "NodePort"], registry=registry)
     local_voter = Gauge("Node_Get_LocalVoter", LOCAL_VOTE_TITLE, ["NodeIP", "NodePort"], registry=registry)
     vote_number = Gauge("Block_Vote_Number", BLOCK_VOTE_NUMBER_TITLE, ["NodeIP", "NodePort"], registry=registry)
-    
+
     # run exporter
     grpc_wrapper = GrpcWrapper(GRPC_HOST, GRPC_PORT)
     node_address = grpc_wrapper.get_node_address()
     logger.debug("Node Address: %s" % (node_address))
-    
+
     ## Exporter Status
     service_status.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT).set(1)
 
@@ -201,13 +199,13 @@ def metrics():
     ## Last Block
     block_number_info = grpc_wrapper.block_number()
     last_block_number_int = int(block_number_info["blockNumber"])
-    prev_block_number_int = last_block_number_int - 1 
+    prev_block_number_int = last_block_number_int - 1
     last_block_number.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT, NodeID=node_address, GenesisBlockNumberHash=genesis_block_hash, NodeAddress=node_address).set(last_block_number_int)
     logger.debug("Block Number - Last: %s, Previous: %s" % (last_block_number_int, prev_block_number_int))
 
     ## Metadata
     metadata_info = grpc_wrapper.metadata()
-    chain_name = None  # TODO metadata_info['chainName']  
+    chain_name = None  # TODO metadata_info['chainName']
     operator = None  # TODO metadata_info['operator']
     token_name = None  # TODO metadata_info['tokenName']
     token_symbol = None  # TODO metadata_info['tokenSymbol']
@@ -222,7 +220,7 @@ def metrics():
     consensus_node_count = len(consensus_node_list)
     chain_nodes.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT).set(consensus_node_count)
 
-    ## 
+    ##
     block_info = grpc_wrapper.GetBlockByNumber(last_block_number_int)
     previous_block_info = grpc_wrapper.GetBlockByNumber(prev_block_number_int)
     block_head_info = block_info['header']
@@ -251,7 +249,7 @@ def metrics():
                               LastBlockHash=last_block_hash, HostPlatform=EXPORTER_PLATFORM, HostName=AGENT_NAME,
                               ConsensusStatus=consensus, SoftVersion=node_software_version).set(block_time)
     logger.debug("Last Block Details - Last Block Hash: %s " % (last_block_hash))
-    
+
     interval = abs(block_time - previous_block_time)
     block_height_difference.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT, CurrentHeight=last_block_number_int, PreviousHeight=prev_block_number_int).set(interval)
     block_interval.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT).set(interval)
@@ -263,7 +261,7 @@ def metrics():
     ## Last Block Quota Used
     if block_head_info.get('quotaUsed'):
         block_quota_used = int(block_head_info['quotaUsed'], 16)
-    else:        
+    else:
         block_quota_used = 0 # TODO int(block_head_info['gasUsed'], 16)  #Get the previous version of CITA v0.19.1 gasUsed    
     last_block_quota_used.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT).set(block_quota_used)
 
@@ -271,7 +269,7 @@ def metrics():
     proposer = 1 if node_address == block_proposer else 0
     check_proposer.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT).set(proposer)
     logger.debug("CheckProposer - Node Address: %s, Block Proposer: %s" % (node_address, block_proposer))
-        
+
     # Peer Info
     peer_count = grpc_wrapper.cli_request("GetPeerCount", common.Empty())["peerCount"]
     node_peers.labels(NodeIP=GRPC_HOST, NodePort=GRPC_PORT).set(peer_count)
@@ -314,19 +312,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # initialize global params
-    EXPORTER_HOST    = args.exporter_host
-    EXPORTER_PORT    = args.exporter_port
-    GRPC_HOST        = args.node_grpc_host
-    GRPC_PORT        = args.node_grpc_port
+    EXPORTER_HOST = args.exporter_host
+    EXPORTER_PORT = args.exporter_port
+    GRPC_HOST = args.node_grpc_host
+    GRPC_PORT = args.node_grpc_port
     NODE_DATA_FOLDER = args.node_data_folder
-
-    # for debugging
-    channel = grpc.insecure_channel("%s:%s" % (GRPC_HOST, GRPC_PORT))
-    stub = CitaCloudControllerGrpc.RPCServiceStub(channel)
-    response = stub.GetSystemConfig(common.Empty())
-    json_object = MessageToJson(response, including_default_value_fields=True)
-    print(json_object)
 
     # start the exporter
     NODE_FLASK.run(host=EXPORTER_HOST, port=EXPORTER_PORT)
-    
+

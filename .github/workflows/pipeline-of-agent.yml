@@ -15,9 +15,8 @@ jobs:
         uses: actions/checkout@v2
       - name: "Testing code"
         run: |
-          pwd && ls -a -l
-          # make deps
-          # make test
+          make deps
+          make test
         
   code_audit:
     needs: [test]
@@ -31,8 +30,7 @@ jobs:
         uses: actions/checkout@v2
       - name: "Scaning code"
         run: |
-          pwd && ls -a -l
-          # make deps
+          make deps
           # make code-quality
           
   build:
@@ -61,16 +59,16 @@ jobs:
       - name: "Building docker images"
         run: |
           sudo pip3 install yq
-          sudo cp -v .env.example .env
-          sudo docker-compose -f docker-compose.yml config \
+          cp -v .env.example .env
+          docker-compose -f docker-compose.yml config \
               | yq -r '.services | .[] | select(.build != null) | [.build.dockerfile, .image, .build.context] | @tsv' \
               | while IFS=$'\t' read -r dockerfile image context
               do
-                  sudo docker buildx build \
-                      --output "type=image,push=false" \
+                  docker buildx build \
+                      --output "type=image,push=true" \
                       --file "${context}/${dockerfile}" \
                       --tag "${image}" \
-                      --platform "linux/arm64" \
+                      --platform "linux/amd64" \
                       "${context}"
               done          
             

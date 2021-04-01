@@ -52,8 +52,8 @@ deps: ## Download the depenedencies.
 	# intall shellcheck
 	@shellcheck --version || brew install shellcheck || apt-get install shellcheck || (echo "install shellcheck: https://github.com/koalaman/shellcheck" && exit 1)
 
-	# install requirements for agent/cita_exporter
-	@cd agent/cita_exporter/ && pip3 install -r requirements.txt
+	# install requirements for agent/citacloud-exporter
+	@cd agent/citacloud-exporter/ && pip3 install -r requirements.txt
 
 ##@ Cleanup
 clean: ## Clean up.
@@ -97,13 +97,13 @@ lint-python-code: ## Run linter for python codes
 
 lint-python-code-quality: ## Run linter for python codes quality
 	@$(call puts,INFO,"Sniffs code smells in Python code")
-	pylint $$(git ls-files '*.py')
+	pylint --exit-zero $$(git ls-files '*.py' | grep -E -v '/grpcstub/[^/]*\.py')
 
 lint-python-code-security: ## Run linter for python codes security
 	@$(call puts,INFO,"Find common security issues in Python code")
 	# B605 is "start_process_with_a_shell",B607 is "start_process_with_partial_path", both of them are the way to execute system command。
 	# B104 is "hardcoded_bind_all_interfaces", just like 0.0.0.0
-	bandit **/*.py -s B605,B607,B104
+	bandit $$(git ls-files '*.py' | grep -E -v '/grpcstub/[^/]*\.py') -s B605,B607,B104
 
 format-python-code: ## Run formatter for python codes.
 	$(info Run formatter for python codes)
