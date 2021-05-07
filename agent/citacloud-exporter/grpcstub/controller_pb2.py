@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x63ontroller.proto\x12\ncontroller\x1a\x0c\x63ommon.proto\x1a\x10\x62lockchain.proto\"\x14\n\x04\x46lag\x12\x0c\n\x04\x66lag\x18\x01 \x01(\x08\"#\n\x0b\x42lockNumber\x12\x14\n\x0c\x62lock_number\x18\x01 \x01(\x04\"\x88\x01\n\x0eRawTransaction\x12\x36\n\tnormal_tx\x18\x01 \x01(\x0b\x32!.blockchain.UnverifiedTransactionH\x00\x12\x38\n\x07utxo_tx\x18\x02 \x01(\x0b\x32%.blockchain.UnverifiedUtxoTransactionH\x00\x42\x04\n\x02tx\"\xf7\x01\n\x0cSystemConfig\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\x10\n\x08\x63hain_id\x18\x02 \x01(\x0c\x12\r\n\x05\x61\x64min\x18\x03 \x01(\x0c\x12\x16\n\x0e\x62lock_interval\x18\x04 \x01(\r\x12\x12\n\nvalidators\x18\x05 \x03(\x0c\x12\x18\n\x10version_pre_hash\x18\x06 \x01(\x0c\x12\x19\n\x11\x63hain_id_pre_hash\x18\x07 \x01(\x0c\x12\x16\n\x0e\x61\x64min_pre_hash\x18\x08 \x01(\x0c\x12\x1f\n\x17\x62lock_interval_pre_hash\x18\t \x01(\x0c\x12\x1b\n\x13validators_pre_hash\x18\n \x01(\x0c\"\"\n\x0fSoftwareVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\"\x1f\n\tPeerCount\x12\x12\n\npeer_count\x18\x01 \x01(\x04\"$\n\x10TransactionIndex\x12\x10\n\x08tx_index\x18\x01 \x01(\x04\x32\xb0\x05\n\nRPCService\x12;\n\x0eGetBlockNumber\x12\x10.controller.Flag\x1a\x17.controller.BlockNumber\x12>\n\x12SendRawTransaction\x12\x1a.controller.RawTransaction\x1a\x0c.common.Hash\x12\x38\n\x0eGetBlockByHash\x12\x0c.common.Hash\x1a\x18.blockchain.CompactBlock\x12\x45\n\x10GetBlockByNumber\x12\x17.controller.BlockNumber\x1a\x18.blockchain.CompactBlock\x12:\n\x0eGetTransaction\x12\x0c.common.Hash\x1a\x1a.controller.RawTransaction\x12:\n\x0fGetSystemConfig\x12\r.common.Empty\x1a\x18.controller.SystemConfig\x12\x38\n\nGetVersion\x12\r.common.Empty\x1a\x1b.controller.SoftwareVersion\x12\x35\n\x0cGetBlockHash\x12\x17.controller.BlockNumber\x1a\x0c.common.Hash\x12\x42\n\x19GetTransactionBlockNumber\x12\x0c.common.Hash\x1a\x17.controller.BlockNumber\x12\x41\n\x13GetTransactionIndex\x12\x0c.common.Hash\x1a\x1c.controller.TransactionIndex\x12\x34\n\x0cGetPeerCount\x12\r.common.Empty\x1a\x15.controller.PeerCount2\xb9\x01\n\x1b\x43onsensus2ControllerService\x12*\n\x0bGetProposal\x12\r.common.Empty\x1a\x0c.common.Hash\x12\x35\n\rCheckProposal\x12\x0c.common.Hash\x1a\x16.common.SimpleResponse\x12\x37\n\x0b\x43ommitBlock\x12\x19.common.ProposalWithProof\x1a\r.common.Emptyb\x06proto3'
+  serialized_pb=b'\n\x10\x63ontroller.proto\x12\ncontroller\x1a\x0c\x63ommon.proto\x1a\x10\x62lockchain.proto\"\x14\n\x04\x46lag\x12\x0c\n\x04\x66lag\x18\x01 \x01(\x08\"#\n\x0b\x42lockNumber\x12\x14\n\x0c\x62lock_number\x18\x01 \x01(\x04\"\x88\x01\n\x0eRawTransaction\x12\x36\n\tnormal_tx\x18\x01 \x01(\x0b\x32!.blockchain.UnverifiedTransactionH\x00\x12\x38\n\x07utxo_tx\x18\x02 \x01(\x0b\x32%.blockchain.UnverifiedUtxoTransactionH\x00\x42\x04\n\x02tx\"\xb2\x02\n\x0cSystemConfig\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\x10\n\x08\x63hain_id\x18\x02 \x01(\x0c\x12\r\n\x05\x61\x64min\x18\x03 \x01(\x0c\x12\x16\n\x0e\x62lock_interval\x18\x04 \x01(\r\x12\x12\n\nvalidators\x18\x05 \x03(\x0c\x12\x17\n\x0f\x65mergency_brake\x18\x06 \x01(\x08\x12\x18\n\x10version_pre_hash\x18\x07 \x01(\x0c\x12\x19\n\x11\x63hain_id_pre_hash\x18\x08 \x01(\x0c\x12\x16\n\x0e\x61\x64min_pre_hash\x18\t \x01(\x0c\x12\x1f\n\x17\x62lock_interval_pre_hash\x18\n \x01(\x0c\x12\x1b\n\x13validators_pre_hash\x18\x0b \x01(\x0c\x12 \n\x18\x65mergency_brake_pre_hash\x18\x0c \x01(\x0c\"\"\n\x0fSoftwareVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\"\x1f\n\tPeerCount\x12\x12\n\npeer_count\x18\x01 \x01(\x04\"$\n\x10TransactionIndex\x12\x10\n\x08tx_index\x18\x01 \x01(\x04\x32\xb0\x05\n\nRPCService\x12;\n\x0eGetBlockNumber\x12\x10.controller.Flag\x1a\x17.controller.BlockNumber\x12>\n\x12SendRawTransaction\x12\x1a.controller.RawTransaction\x1a\x0c.common.Hash\x12\x38\n\x0eGetBlockByHash\x12\x0c.common.Hash\x1a\x18.blockchain.CompactBlock\x12\x45\n\x10GetBlockByNumber\x12\x17.controller.BlockNumber\x1a\x18.blockchain.CompactBlock\x12:\n\x0eGetTransaction\x12\x0c.common.Hash\x1a\x1a.controller.RawTransaction\x12:\n\x0fGetSystemConfig\x12\r.common.Empty\x1a\x18.controller.SystemConfig\x12\x38\n\nGetVersion\x12\r.common.Empty\x1a\x1b.controller.SoftwareVersion\x12\x35\n\x0cGetBlockHash\x12\x17.controller.BlockNumber\x1a\x0c.common.Hash\x12\x42\n\x19GetTransactionBlockNumber\x12\x0c.common.Hash\x1a\x17.controller.BlockNumber\x12\x41\n\x13GetTransactionIndex\x12\x0c.common.Hash\x1a\x1c.controller.TransactionIndex\x12\x34\n\x0cGetPeerCount\x12\r.common.Empty\x1a\x15.controller.PeerCount2\xc1\x01\n\x1b\x43onsensus2ControllerService\x12.\n\x0bGetProposal\x12\r.common.Empty\x1a\x10.common.Proposal\x12\x39\n\rCheckProposal\x12\x10.common.Proposal\x1a\x16.common.SimpleResponse\x12\x37\n\x0b\x43ommitBlock\x12\x19.common.ProposalWithProof\x1a\r.common.Emptyb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,blockchain__pb2.DESCRIPTOR,])
 
@@ -180,36 +180,50 @@ _SYSTEMCONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='version_pre_hash', full_name='controller.SystemConfig.version_pre_hash', index=5,
-      number=6, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
+      name='emergency_brake', full_name='controller.SystemConfig.emergency_brake', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='chain_id_pre_hash', full_name='controller.SystemConfig.chain_id_pre_hash', index=6,
+      name='version_pre_hash', full_name='controller.SystemConfig.version_pre_hash', index=6,
       number=7, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='admin_pre_hash', full_name='controller.SystemConfig.admin_pre_hash', index=7,
+      name='chain_id_pre_hash', full_name='controller.SystemConfig.chain_id_pre_hash', index=7,
       number=8, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='block_interval_pre_hash', full_name='controller.SystemConfig.block_interval_pre_hash', index=8,
+      name='admin_pre_hash', full_name='controller.SystemConfig.admin_pre_hash', index=8,
       number=9, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='validators_pre_hash', full_name='controller.SystemConfig.validators_pre_hash', index=9,
+      name='block_interval_pre_hash', full_name='controller.SystemConfig.block_interval_pre_hash', index=9,
       number=10, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='validators_pre_hash', full_name='controller.SystemConfig.validators_pre_hash', index=10,
+      number=11, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='emergency_brake_pre_hash', full_name='controller.SystemConfig.emergency_brake_pre_hash', index=11,
+      number=12, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -227,7 +241,7 @@ _SYSTEMCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=263,
-  serialized_end=510,
+  serialized_end=569,
 )
 
 
@@ -258,8 +272,8 @@ _SOFTWAREVERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=512,
-  serialized_end=546,
+  serialized_start=571,
+  serialized_end=605,
 )
 
 
@@ -290,8 +304,8 @@ _PEERCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=548,
-  serialized_end=579,
+  serialized_start=607,
+  serialized_end=638,
 )
 
 
@@ -322,8 +336,8 @@ _TRANSACTIONINDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=581,
-  serialized_end=617,
+  serialized_start=640,
+  serialized_end=676,
 )
 
 _RAWTRANSACTION.fields_by_name['normal_tx'].message_type = blockchain__pb2._UNVERIFIEDTRANSACTION
@@ -401,8 +415,8 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=620,
-  serialized_end=1308,
+  serialized_start=679,
+  serialized_end=1367,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetBlockNumber',
@@ -527,8 +541,8 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1311,
-  serialized_end=1496,
+  serialized_start=1370,
+  serialized_end=1563,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProposal',
@@ -536,7 +550,7 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=common__pb2._EMPTY,
-    output_type=common__pb2._HASH,
+    output_type=common__pb2._PROPOSAL,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -545,7 +559,7 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
     full_name='controller.Consensus2ControllerService.CheckProposal',
     index=1,
     containing_service=None,
-    input_type=common__pb2._HASH,
+    input_type=common__pb2._PROPOSAL,
     output_type=common__pb2._SIMPLERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,

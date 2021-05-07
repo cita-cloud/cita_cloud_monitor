@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0c\x63ommon.proto\x12\x06\x63ommon\"$\n\x0eSimpleResponse\x12\x12\n\nis_success\x18\x01 \x01(\x08\"\x07\n\x05\x45mpty\"\x14\n\x04Hash\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\"4\n\x11ProposalWithProof\x12\x10\n\x08proposal\x18\x01 \x01(\x0c\x12\r\n\x05proof\x18\x02 \x01(\x0c\x62\x06proto3'
+  serialized_pb=b'\n\x0c\x63ommon.proto\x12\x06\x63ommon\"$\n\x0eSimpleResponse\x12\x12\n\nis_success\x18\x01 \x01(\x08\"\x07\n\x05\x45mpty\"\x14\n\x04Hash\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\"\x1a\n\x07\x41\x64\x64ress\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0c\"(\n\x08Proposal\x12\x0e\n\x06height\x18\x01 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"F\n\x11ProposalWithProof\x12\"\n\x08proposal\x18\x01 \x01(\x0b\x32\x10.common.Proposal\x12\r\n\x05proof\x18\x02 \x01(\x0c\x62\x06proto3'
 )
 
 
@@ -114,6 +114,77 @@ _HASH = _descriptor.Descriptor(
 )
 
 
+_ADDRESS = _descriptor.Descriptor(
+  name='Address',
+  full_name='common.Address',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='common.Address.address', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=93,
+  serialized_end=119,
+)
+
+
+_PROPOSAL = _descriptor.Descriptor(
+  name='Proposal',
+  full_name='common.Proposal',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='height', full_name='common.Proposal.height', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='common.Proposal.data', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=121,
+  serialized_end=161,
+)
+
+
 _PROPOSALWITHPROOF = _descriptor.Descriptor(
   name='ProposalWithProof',
   full_name='common.ProposalWithProof',
@@ -124,8 +195,8 @@ _PROPOSALWITHPROOF = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='proposal', full_name='common.ProposalWithProof.proposal', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -148,13 +219,16 @@ _PROPOSALWITHPROOF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=145,
+  serialized_start=163,
+  serialized_end=233,
 )
 
+_PROPOSALWITHPROOF.fields_by_name['proposal'].message_type = _PROPOSAL
 DESCRIPTOR.message_types_by_name['SimpleResponse'] = _SIMPLERESPONSE
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 DESCRIPTOR.message_types_by_name['Hash'] = _HASH
+DESCRIPTOR.message_types_by_name['Address'] = _ADDRESS
+DESCRIPTOR.message_types_by_name['Proposal'] = _PROPOSAL
 DESCRIPTOR.message_types_by_name['ProposalWithProof'] = _PROPOSALWITHPROOF
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -178,6 +252,20 @@ Hash = _reflection.GeneratedProtocolMessageType('Hash', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:common.Hash)
   })
 _sym_db.RegisterMessage(Hash)
+
+Address = _reflection.GeneratedProtocolMessageType('Address', (_message.Message,), {
+  'DESCRIPTOR' : _ADDRESS,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.Address)
+  })
+_sym_db.RegisterMessage(Address)
+
+Proposal = _reflection.GeneratedProtocolMessageType('Proposal', (_message.Message,), {
+  'DESCRIPTOR' : _PROPOSAL,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.Proposal)
+  })
+_sym_db.RegisterMessage(Proposal)
 
 ProposalWithProof = _reflection.GeneratedProtocolMessageType('ProposalWithProof', (_message.Message,), {
   'DESCRIPTOR' : _PROPOSALWITHPROOF,

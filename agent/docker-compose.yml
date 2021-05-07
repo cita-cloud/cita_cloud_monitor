@@ -5,7 +5,7 @@ services:
     build:
       context: ./process-exporter/
       dockerfile: Dockerfile
-    image: citacloud/monitor-process-exporter:0.4.0
+    image: citacloud/monitor-process-exporter:0.4.1
     hostname: process_exporter
     container_name: citamon_agent_process_exporter
     volumes:
@@ -24,7 +24,7 @@ services:
     build:
       context: ./citacloud-exporter/
       dockerfile: Dockerfile
-    image: citacloud/monitor-citacloud-exporter:0.1.0
+    image: citacloud/monitor-citacloud-exporter:0.1.1
     hostname: ${HOSTNAME}
     container_name: citamon_agent_citacloud_exporter
     volumes:

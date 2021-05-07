@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rstorage.proto\x12\x07storage\x1a\x0c\x63ommon.proto\"5\n\x07\x43ontent\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\x12\r\n\x05value\x18\x03 \x01(\x0c\"%\n\x06\x45xtKey\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\"\x16\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x0c*s\n\x07Regions\x12\n\n\x06GLOBAL\x10\x00\x12\x10\n\x0cTRANSACTIONS\x10\x01\x12\x0b\n\x07HEADERS\x10\x02\x12\n\n\x06\x42ODIES\x10\x03\x12\x0e\n\nBLOCK_HASH\x10\x04\x12\t\n\x05PROOF\x10\x05\x12\n\n\x06RESULT\x10\x06\x12\n\n\x06\x42UTTON\x10\x07\x32\x9f\x01\n\x0eStorageService\x12\x31\n\x05Store\x12\x10.storage.Content\x1a\x16.common.SimpleResponse\x12\'\n\x04Load\x12\x0f.storage.ExtKey\x1a\x0e.storage.Value\x12\x31\n\x06\x44\x65lete\x12\x0f.storage.ExtKey\x1a\x16.common.SimpleResponseb\x06proto3'
+  serialized_pb=b'\n\rstorage.proto\x12\x07storage\x1a\x0c\x63ommon.proto\"5\n\x07\x43ontent\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\x12\r\n\x05value\x18\x03 \x01(\x0c\"%\n\x06\x45xtKey\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\"\x16\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x0c*\xca\x01\n\x07Regions\x12\n\n\x06GLOBAL\x10\x00\x12\x10\n\x0cTRANSACTIONS\x10\x01\x12\x0b\n\x07HEADERS\x10\x02\x12\n\n\x06\x42ODIES\x10\x03\x12\x0e\n\nBLOCK_HASH\x10\x04\x12\t\n\x05PROOF\x10\x05\x12\n\n\x06RESULT\x10\x06\x12!\n\x1dTRANSACTION_HASH2BLOCK_HEIGHT\x10\x07\x12\x1b\n\x17\x42LOCK_HASH2BLOCK_HEIGHT\x10\x08\x12\x15\n\x11TRANSACTION_INDEX\x10\t\x12\n\n\x06\x42UTTON\x10\n2\x9f\x01\n\x0eStorageService\x12\x31\n\x05Store\x12\x10.storage.Content\x1a\x16.common.SimpleResponse\x12\'\n\x04Load\x12\x0f.storage.ExtKey\x1a\x0e.storage.Value\x12\x31\n\x06\x44\x65lete\x12\x0f.storage.ExtKey\x1a\x16.common.SimpleResponseb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -68,15 +68,30 @@ _REGIONS = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='BUTTON', index=7, number=7,
+      name='TRANSACTION_HASH2BLOCK_HEIGHT', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BLOCK_HASH2BLOCK_HEIGHT', index=8, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TRANSACTION_INDEX', index=9, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON', index=10, number=10,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=158,
-  serialized_end=273,
+  serialized_start=159,
+  serialized_end=361,
 )
 _sym_db.RegisterEnumDescriptor(_REGIONS)
 
@@ -88,7 +103,10 @@ BODIES = 3
 BLOCK_HASH = 4
 PROOF = 5
 RESULT = 6
-BUTTON = 7
+TRANSACTION_HASH2BLOCK_HEIGHT = 7
+BLOCK_HASH2BLOCK_HEIGHT = 8
+TRANSACTION_INDEX = 9
+BUTTON = 10
 
 
 
@@ -244,8 +262,8 @@ _STORAGESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=276,
-  serialized_end=435,
+  serialized_start=364,
+  serialized_end=523,
   methods=[
   _descriptor.MethodDescriptor(
     name='Store',

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0f\x63onsensus.proto\x12\tconsensus\x1a\x0c\x63ommon.proto\"D\n\x16\x43onsensusConfiguration\x12\x16\n\x0e\x62lock_interval\x18\x01 \x01(\r\x12\x12\n\nvalidators\x18\x02 \x03(\x0c\x32\x9d\x01\n\x10\x43onsensusService\x12H\n\x0bReconfigure\x12!.consensus.ConsensusConfiguration\x1a\x16.common.SimpleResponse\x12?\n\nCheckBlock\x12\x19.common.ProposalWithProof\x1a\x16.common.SimpleResponseb\x06proto3'
+  serialized_pb=b'\n\x0f\x63onsensus.proto\x12\tconsensus\x1a\x0c\x63ommon.proto\"T\n\x16\x43onsensusConfiguration\x12\x0e\n\x06height\x18\x01 \x01(\x04\x12\x16\n\x0e\x62lock_interval\x18\x02 \x01(\r\x12\x12\n\nvalidators\x18\x03 \x03(\x0c\x32\x9d\x01\n\x10\x43onsensusService\x12H\n\x0bReconfigure\x12!.consensus.ConsensusConfiguration\x1a\x16.common.SimpleResponse\x12?\n\nCheckBlock\x12\x19.common.ProposalWithProof\x1a\x16.common.SimpleResponseb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -36,15 +36,22 @@ _CONSENSUSCONFIGURATION = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='block_interval', full_name='consensus.ConsensusConfiguration.block_interval', index=0,
-      number=1, type=13, cpp_type=3, label=1,
+      name='height', full_name='consensus.ConsensusConfiguration.height', index=0,
+      number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='validators', full_name='consensus.ConsensusConfiguration.validators', index=1,
-      number=2, type=12, cpp_type=9, label=3,
+      name='block_interval', full_name='consensus.ConsensusConfiguration.block_interval', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='validators', full_name='consensus.ConsensusConfiguration.validators', index=2,
+      number=3, type=12, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -62,7 +69,7 @@ _CONSENSUSCONFIGURATION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=44,
-  serialized_end=112,
+  serialized_end=128,
 )
 
 DESCRIPTOR.message_types_by_name['ConsensusConfiguration'] = _CONSENSUSCONFIGURATION
@@ -84,8 +91,8 @@ _CONSENSUSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=115,
-  serialized_end=272,
+  serialized_start=131,
+  serialized_end=288,
   methods=[
   _descriptor.MethodDescriptor(
     name='Reconfigure',

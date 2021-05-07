@@ -4,21 +4,6 @@ A blockchain monitoring system for [CITA Cloud](https://github.com/cita-cloud), 
 
 Metrics are including blockchain data, process status, host info like CPU/memory/disk usage etc.
 
-[![Travis Build Status](https://img.shields.io/travis/com/citahub/cita-monitor/master.svg)](https://travis-ci.com/citahub/cita-monitor)
-[![License: Apache-2.0](https://img.shields.io/github/license/citahub/cita-monitor.svg)](https://github.com/citahub/cita-monitor/blob/master/LICENSE)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/citahub/cita-monitor.svg)
-
-## Screenshots for Dashboards
-
-Summary Dashboard Demo
-![summary-dashboard-demo-fs8](https://user-images.githubusercontent.com/71397/57682153-b9a5c700-7663-11e9-93c6-a29758e7d3a1.png)
-
-CITA Node Info Dashboard Demo
-![cita-node-info-dashboard-demo-fs8](https://user-images.githubusercontent.com/71397/57681838-15bc1b80-7663-11e9-91b4-202c306a0f3b.png)
-
-Host Info Dashboard Demo
-![host-info-dashboard-demo-fs8](https://user-images.githubusercontent.com/71397/57681906-3ab08e80-7663-11e9-9229-76b85c0eaaa4.png)
-
 ## Feature List
 
 * CITA Cloud service process monitoring
@@ -86,7 +71,7 @@ For installing agent, read [agent/README.md](agent/README.md)
 
 ### Creating a Bug Report
 
-open a new issue: https://github.com/citahub/cita-monitor/issues/new 
+open a new issue: https://github.com/cita-cloud/cita_cloud_monitor/issues
 
 with your version info
 
@@ -97,7 +82,7 @@ Read [docs/tech_stack.md](docs/tech_stack.md) to know the programming languages,
 ### Get source
 
 ```
-git clone git@github.com:citahub/cita-monitor.git
+git clone https://github.com/cita-cloud/cita_cloud_monitor.git
 ```
 
 ### Coding style

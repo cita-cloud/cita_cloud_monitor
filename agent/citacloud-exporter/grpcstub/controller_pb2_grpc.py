@@ -412,11 +412,11 @@ class Consensus2ControllerServiceStub(object):
         self.GetProposal = channel.unary_unary(
                 '/controller.Consensus2ControllerService/GetProposal',
                 request_serializer=common__pb2.Empty.SerializeToString,
-                response_deserializer=common__pb2.Hash.FromString,
+                response_deserializer=common__pb2.Proposal.FromString,
                 )
         self.CheckProposal = channel.unary_unary(
                 '/controller.Consensus2ControllerService/CheckProposal',
-                request_serializer=common__pb2.Hash.SerializeToString,
+                request_serializer=common__pb2.Proposal.SerializeToString,
                 response_deserializer=common__pb2.SimpleResponse.FromString,
                 )
         self.CommitBlock = channel.unary_unary(
@@ -431,7 +431,7 @@ class Consensus2ControllerServiceServicer(object):
 
     def GetProposal(self, request, context):
         """Consensus request a Proposal to start consensus
-        ret: proposal hash
+        ret: proposal
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -459,11 +459,11 @@ def add_Consensus2ControllerServiceServicer_to_server(servicer, server):
             'GetProposal': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProposal,
                     request_deserializer=common__pb2.Empty.FromString,
-                    response_serializer=common__pb2.Hash.SerializeToString,
+                    response_serializer=common__pb2.Proposal.SerializeToString,
             ),
             'CheckProposal': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckProposal,
-                    request_deserializer=common__pb2.Hash.FromString,
+                    request_deserializer=common__pb2.Proposal.FromString,
                     response_serializer=common__pb2.SimpleResponse.SerializeToString,
             ),
             'CommitBlock': grpc.unary_unary_rpc_method_handler(
@@ -494,7 +494,7 @@ class Consensus2ControllerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.Consensus2ControllerService/GetProposal',
             common__pb2.Empty.SerializeToString,
-            common__pb2.Hash.FromString,
+            common__pb2.Proposal.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -510,7 +510,7 @@ class Consensus2ControllerService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.Consensus2ControllerService/CheckProposal',
-            common__pb2.Hash.SerializeToString,
+            common__pb2.Proposal.SerializeToString,
             common__pb2.SimpleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
