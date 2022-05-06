@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x63ontroller.proto\x12\ncontroller\x1a\x0c\x63ommon.proto\x1a\x10\x62lockchain.proto\"\x14\n\x04\x46lag\x12\x0c\n\x04\x66lag\x18\x01 \x01(\x08\"#\n\x0b\x42lockNumber\x12\x14\n\x0c\x62lock_number\x18\x01 \x01(\x04\"\x88\x01\n\x0eRawTransaction\x12\x36\n\tnormal_tx\x18\x01 \x01(\x0b\x32!.blockchain.UnverifiedTransactionH\x00\x12\x38\n\x07utxo_tx\x18\x02 \x01(\x0b\x32%.blockchain.UnverifiedUtxoTransactionH\x00\x42\x04\n\x02tx\"\xb2\x02\n\x0cSystemConfig\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\x10\n\x08\x63hain_id\x18\x02 \x01(\x0c\x12\r\n\x05\x61\x64min\x18\x03 \x01(\x0c\x12\x16\n\x0e\x62lock_interval\x18\x04 \x01(\r\x12\x12\n\nvalidators\x18\x05 \x03(\x0c\x12\x17\n\x0f\x65mergency_brake\x18\x06 \x01(\x08\x12\x18\n\x10version_pre_hash\x18\x07 \x01(\x0c\x12\x19\n\x11\x63hain_id_pre_hash\x18\x08 \x01(\x0c\x12\x16\n\x0e\x61\x64min_pre_hash\x18\t \x01(\x0c\x12\x1f\n\x17\x62lock_interval_pre_hash\x18\n \x01(\x0c\x12\x1b\n\x13validators_pre_hash\x18\x0b \x01(\x0c\x12 \n\x18\x65mergency_brake_pre_hash\x18\x0c \x01(\x0c\"\"\n\x0fSoftwareVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\"\x1f\n\tPeerCount\x12\x12\n\npeer_count\x18\x01 \x01(\x04\"$\n\x10TransactionIndex\x12\x10\n\x08tx_index\x18\x01 \x01(\x04\x32\xb0\x05\n\nRPCService\x12;\n\x0eGetBlockNumber\x12\x10.controller.Flag\x1a\x17.controller.BlockNumber\x12>\n\x12SendRawTransaction\x12\x1a.controller.RawTransaction\x1a\x0c.common.Hash\x12\x38\n\x0eGetBlockByHash\x12\x0c.common.Hash\x1a\x18.blockchain.CompactBlock\x12\x45\n\x10GetBlockByNumber\x12\x17.controller.BlockNumber\x1a\x18.blockchain.CompactBlock\x12:\n\x0eGetTransaction\x12\x0c.common.Hash\x1a\x1a.controller.RawTransaction\x12:\n\x0fGetSystemConfig\x12\r.common.Empty\x1a\x18.controller.SystemConfig\x12\x38\n\nGetVersion\x12\r.common.Empty\x1a\x1b.controller.SoftwareVersion\x12\x35\n\x0cGetBlockHash\x12\x17.controller.BlockNumber\x1a\x0c.common.Hash\x12\x42\n\x19GetTransactionBlockNumber\x12\x0c.common.Hash\x1a\x17.controller.BlockNumber\x12\x41\n\x13GetTransactionIndex\x12\x0c.common.Hash\x1a\x1c.controller.TransactionIndex\x12\x34\n\x0cGetPeerCount\x12\r.common.Empty\x1a\x15.controller.PeerCount2\xc1\x01\n\x1b\x43onsensus2ControllerService\x12.\n\x0bGetProposal\x12\r.common.Empty\x1a\x10.common.Proposal\x12\x39\n\rCheckProposal\x12\x10.common.Proposal\x1a\x16.common.SimpleResponse\x12\x37\n\x0b\x43ommitBlock\x12\x19.common.ProposalWithProof\x1a\r.common.Emptyb\x06proto3'
+  serialized_pb=b'\n\x10\x63ontroller.proto\x12\ncontroller\x1a\x0c\x63ommon.proto\x1a\x10\x62lockchain.proto\"\x14\n\x04\x46lag\x12\x0c\n\x04\x66lag\x18\x01 \x01(\x08\"#\n\x0b\x42lockNumber\x12\x14\n\x0c\x62lock_number\x18\x01 \x01(\x04\"\x9c\x03\n\x0cSystemConfig\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\x10\n\x08\x63hain_id\x18\x02 \x01(\x0c\x12\r\n\x05\x61\x64min\x18\x03 \x01(\x0c\x12\x16\n\x0e\x62lock_interval\x18\x04 \x01(\r\x12\x12\n\nvalidators\x18\x05 \x03(\x0c\x12\x17\n\x0f\x65mergency_brake\x18\x06 \x01(\x08\x12\x18\n\x10version_pre_hash\x18\x07 \x01(\x0c\x12\x19\n\x11\x63hain_id_pre_hash\x18\x08 \x01(\x0c\x12\x16\n\x0e\x61\x64min_pre_hash\x18\t \x01(\x0c\x12\x1f\n\x17\x62lock_interval_pre_hash\x18\n \x01(\x0c\x12\x1b\n\x13validators_pre_hash\x18\x0b \x01(\x0c\x12 \n\x18\x65mergency_brake_pre_hash\x18\x0c \x01(\x0c\x12\x15\n\rpackage_limit\x18\r \x01(\r\x12\x1e\n\x16package_limit_pre_hash\x18\x0e \x01(\x0c\x12\x13\n\x0b\x62lock_limit\x18\x0f \x01(\r\x12\x1c\n\x14\x62lock_limit_pre_hash\x18\x10 \x01(\x0c\"\"\n\x0fSoftwareVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\"\x1f\n\tPeerCount\x12\x12\n\npeer_count\x18\x01 \x01(\x04\"$\n\x10TransactionIndex\x12\x10\n\x08tx_index\x18\x01 \x01(\x04\x32\xa4\x07\n\nRPCService\x12;\n\x0eGetBlockNumber\x12\x10.controller.Flag\x1a\x17.controller.BlockNumber\x12>\n\x12SendRawTransaction\x12\x1a.blockchain.RawTransaction\x1a\x0c.common.Hash\x12\x42\n\x13SendRawTransactions\x12\x1b.blockchain.RawTransactions\x1a\x0e.common.Hashes\x12\x38\n\x0eGetBlockByHash\x12\x0c.common.Hash\x1a\x18.blockchain.CompactBlock\x12\x45\n\x10GetBlockByNumber\x12\x17.controller.BlockNumber\x1a\x18.blockchain.CompactBlock\x12\x44\n\x16GetBlockDetailByNumber\x12\x17.controller.BlockNumber\x1a\x11.blockchain.Block\x12:\n\x0eGetTransaction\x12\x0c.common.Hash\x1a\x1a.blockchain.RawTransaction\x12:\n\x0fGetSystemConfig\x12\r.common.Empty\x1a\x18.controller.SystemConfig\x12\x38\n\nGetVersion\x12\r.common.Empty\x1a\x1b.controller.SoftwareVersion\x12\x35\n\x0cGetBlockHash\x12\x17.controller.BlockNumber\x1a\x0c.common.Hash\x12\x42\n\x19GetTransactionBlockNumber\x12\x0c.common.Hash\x1a\x17.controller.BlockNumber\x12\x41\n\x13GetTransactionIndex\x12\x0c.common.Hash\x1a\x1c.controller.TransactionIndex\x12\x34\n\x0cGetPeerCount\x12\r.common.Empty\x1a\x15.controller.PeerCount\x12\x32\n\x07\x41\x64\x64Node\x12\x13.common.NodeNetInfo\x1a\x12.common.StatusCode\x12\x34\n\x0cGetPeersInfo\x12\r.common.Empty\x1a\x15.common.TotalNodeInfo2\xde\x01\n\x1b\x43onsensus2ControllerService\x12\x36\n\x0bGetProposal\x12\r.common.Empty\x1a\x18.common.ProposalResponse\x12\x35\n\rCheckProposal\x12\x10.common.Proposal\x1a\x12.common.StatusCode\x12P\n\x0b\x43ommitBlock\x12\x19.common.ProposalWithProof\x1a&.common.ConsensusConfigurationResponseb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,blockchain__pb2.DESCRIPTOR,])
 
@@ -89,50 +89,6 @@ _BLOCKNUMBER = _descriptor.Descriptor(
   ],
   serialized_start=86,
   serialized_end=121,
-)
-
-
-_RAWTRANSACTION = _descriptor.Descriptor(
-  name='RawTransaction',
-  full_name='controller.RawTransaction',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='normal_tx', full_name='controller.RawTransaction.normal_tx', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='utxo_tx', full_name='controller.RawTransaction.utxo_tx', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='tx', full_name='controller.RawTransaction.tx',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=124,
-  serialized_end=260,
 )
 
 
@@ -228,6 +184,34 @@ _SYSTEMCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='package_limit', full_name='controller.SystemConfig.package_limit', index=12,
+      number=13, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='package_limit_pre_hash', full_name='controller.SystemConfig.package_limit_pre_hash', index=13,
+      number=14, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='block_limit', full_name='controller.SystemConfig.block_limit', index=14,
+      number=15, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='block_limit_pre_hash', full_name='controller.SystemConfig.block_limit_pre_hash', index=15,
+      number=16, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -240,8 +224,8 @@ _SYSTEMCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=263,
-  serialized_end=569,
+  serialized_start=124,
+  serialized_end=536,
 )
 
 
@@ -272,8 +256,8 @@ _SOFTWAREVERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=571,
-  serialized_end=605,
+  serialized_start=538,
+  serialized_end=572,
 )
 
 
@@ -304,8 +288,8 @@ _PEERCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=607,
-  serialized_end=638,
+  serialized_start=574,
+  serialized_end=605,
 )
 
 
@@ -336,21 +320,12 @@ _TRANSACTIONINDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=640,
-  serialized_end=676,
+  serialized_start=607,
+  serialized_end=643,
 )
 
-_RAWTRANSACTION.fields_by_name['normal_tx'].message_type = blockchain__pb2._UNVERIFIEDTRANSACTION
-_RAWTRANSACTION.fields_by_name['utxo_tx'].message_type = blockchain__pb2._UNVERIFIEDUTXOTRANSACTION
-_RAWTRANSACTION.oneofs_by_name['tx'].fields.append(
-  _RAWTRANSACTION.fields_by_name['normal_tx'])
-_RAWTRANSACTION.fields_by_name['normal_tx'].containing_oneof = _RAWTRANSACTION.oneofs_by_name['tx']
-_RAWTRANSACTION.oneofs_by_name['tx'].fields.append(
-  _RAWTRANSACTION.fields_by_name['utxo_tx'])
-_RAWTRANSACTION.fields_by_name['utxo_tx'].containing_oneof = _RAWTRANSACTION.oneofs_by_name['tx']
 DESCRIPTOR.message_types_by_name['Flag'] = _FLAG
 DESCRIPTOR.message_types_by_name['BlockNumber'] = _BLOCKNUMBER
-DESCRIPTOR.message_types_by_name['RawTransaction'] = _RAWTRANSACTION
 DESCRIPTOR.message_types_by_name['SystemConfig'] = _SYSTEMCONFIG
 DESCRIPTOR.message_types_by_name['SoftwareVersion'] = _SOFTWAREVERSION
 DESCRIPTOR.message_types_by_name['PeerCount'] = _PEERCOUNT
@@ -370,13 +345,6 @@ BlockNumber = _reflection.GeneratedProtocolMessageType('BlockNumber', (_message.
   # @@protoc_insertion_point(class_scope:controller.BlockNumber)
   })
 _sym_db.RegisterMessage(BlockNumber)
-
-RawTransaction = _reflection.GeneratedProtocolMessageType('RawTransaction', (_message.Message,), {
-  'DESCRIPTOR' : _RAWTRANSACTION,
-  '__module__' : 'controller_pb2'
-  # @@protoc_insertion_point(class_scope:controller.RawTransaction)
-  })
-_sym_db.RegisterMessage(RawTransaction)
 
 SystemConfig = _reflection.GeneratedProtocolMessageType('SystemConfig', (_message.Message,), {
   'DESCRIPTOR' : _SYSTEMCONFIG,
@@ -415,8 +383,8 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=679,
-  serialized_end=1367,
+  serialized_start=646,
+  serialized_end=1578,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetBlockNumber',
@@ -433,15 +401,25 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
     full_name='controller.RPCService.SendRawTransaction',
     index=1,
     containing_service=None,
-    input_type=_RAWTRANSACTION,
+    input_type=blockchain__pb2._RAWTRANSACTION,
     output_type=common__pb2._HASH,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SendRawTransactions',
+    full_name='controller.RPCService.SendRawTransactions',
+    index=2,
+    containing_service=None,
+    input_type=blockchain__pb2._RAWTRANSACTIONS,
+    output_type=common__pb2._HASHES,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetBlockByHash',
     full_name='controller.RPCService.GetBlockByHash',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=common__pb2._HASH,
     output_type=blockchain__pb2._COMPACTBLOCK,
@@ -451,7 +429,7 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetBlockByNumber',
     full_name='controller.RPCService.GetBlockByNumber',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_BLOCKNUMBER,
     output_type=blockchain__pb2._COMPACTBLOCK,
@@ -459,19 +437,29 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetBlockDetailByNumber',
+    full_name='controller.RPCService.GetBlockDetailByNumber',
+    index=5,
+    containing_service=None,
+    input_type=_BLOCKNUMBER,
+    output_type=blockchain__pb2._BLOCK,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetTransaction',
     full_name='controller.RPCService.GetTransaction',
-    index=4,
+    index=6,
     containing_service=None,
     input_type=common__pb2._HASH,
-    output_type=_RAWTRANSACTION,
+    output_type=blockchain__pb2._RAWTRANSACTION,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetSystemConfig',
     full_name='controller.RPCService.GetSystemConfig',
-    index=5,
+    index=7,
     containing_service=None,
     input_type=common__pb2._EMPTY,
     output_type=_SYSTEMCONFIG,
@@ -481,7 +469,7 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetVersion',
     full_name='controller.RPCService.GetVersion',
-    index=6,
+    index=8,
     containing_service=None,
     input_type=common__pb2._EMPTY,
     output_type=_SOFTWAREVERSION,
@@ -491,7 +479,7 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetBlockHash',
     full_name='controller.RPCService.GetBlockHash',
-    index=7,
+    index=9,
     containing_service=None,
     input_type=_BLOCKNUMBER,
     output_type=common__pb2._HASH,
@@ -501,7 +489,7 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetTransactionBlockNumber',
     full_name='controller.RPCService.GetTransactionBlockNumber',
-    index=8,
+    index=10,
     containing_service=None,
     input_type=common__pb2._HASH,
     output_type=_BLOCKNUMBER,
@@ -511,7 +499,7 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetTransactionIndex',
     full_name='controller.RPCService.GetTransactionIndex',
-    index=9,
+    index=11,
     containing_service=None,
     input_type=common__pb2._HASH,
     output_type=_TRANSACTIONINDEX,
@@ -521,10 +509,30 @@ _RPCSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetPeerCount',
     full_name='controller.RPCService.GetPeerCount',
-    index=10,
+    index=12,
     containing_service=None,
     input_type=common__pb2._EMPTY,
     output_type=_PEERCOUNT,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='AddNode',
+    full_name='controller.RPCService.AddNode',
+    index=13,
+    containing_service=None,
+    input_type=common__pb2._NODENETINFO,
+    output_type=common__pb2._STATUSCODE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetPeersInfo',
+    full_name='controller.RPCService.GetPeersInfo',
+    index=14,
+    containing_service=None,
+    input_type=common__pb2._EMPTY,
+    output_type=common__pb2._TOTALNODEINFO,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -541,8 +549,8 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1370,
-  serialized_end=1563,
+  serialized_start=1581,
+  serialized_end=1803,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProposal',
@@ -550,7 +558,7 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=common__pb2._EMPTY,
-    output_type=common__pb2._PROPOSAL,
+    output_type=common__pb2._PROPOSALRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -560,7 +568,7 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=common__pb2._PROPOSAL,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -570,7 +578,7 @@ _CONSENSUS2CONTROLLERSERVICE = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=common__pb2._PROPOSALWITHPROOF,
-    output_type=common__pb2._EMPTY,
+    output_type=common__pb2._CONSENSUSCONFIGURATIONRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

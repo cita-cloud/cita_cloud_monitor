@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rstorage.proto\x12\x07storage\x1a\x0c\x63ommon.proto\"5\n\x07\x43ontent\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\x12\r\n\x05value\x18\x03 \x01(\x0c\"%\n\x06\x45xtKey\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\"\x16\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x0c*\xca\x01\n\x07Regions\x12\n\n\x06GLOBAL\x10\x00\x12\x10\n\x0cTRANSACTIONS\x10\x01\x12\x0b\n\x07HEADERS\x10\x02\x12\n\n\x06\x42ODIES\x10\x03\x12\x0e\n\nBLOCK_HASH\x10\x04\x12\t\n\x05PROOF\x10\x05\x12\n\n\x06RESULT\x10\x06\x12!\n\x1dTRANSACTION_HASH2BLOCK_HEIGHT\x10\x07\x12\x1b\n\x17\x42LOCK_HASH2BLOCK_HEIGHT\x10\x08\x12\x15\n\x11TRANSACTION_INDEX\x10\t\x12\n\n\x06\x42UTTON\x10\n2\x9f\x01\n\x0eStorageService\x12\x31\n\x05Store\x12\x10.storage.Content\x1a\x16.common.SimpleResponse\x12\'\n\x04Load\x12\x0f.storage.ExtKey\x1a\x0e.storage.Value\x12\x31\n\x06\x44\x65lete\x12\x0f.storage.ExtKey\x1a\x16.common.SimpleResponseb\x06proto3'
+  serialized_pb=b'\n\rstorage.proto\x12\x07storage\x1a\x0c\x63ommon.proto\"5\n\x07\x43ontent\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\x12\r\n\x05value\x18\x03 \x01(\x0c\"%\n\x06\x45xtKey\x12\x0e\n\x06region\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\x0c\":\n\x05Value\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.common.StatusCode\x12\r\n\x05value\x18\x02 \x01(\x0c*\xec\x01\n\x07Regions\x12\n\n\x06GLOBAL\x10\x00\x12\x10\n\x0cTRANSACTIONS\x10\x01\x12\x0b\n\x07HEADERS\x10\x02\x12\n\n\x06\x42ODIES\x10\x03\x12\x0e\n\nBLOCK_HASH\x10\x04\x12\t\n\x05PROOF\x10\x05\x12\n\n\x06RESULT\x10\x06\x12!\n\x1dTRANSACTION_HASH2BLOCK_HEIGHT\x10\x07\x12\x1b\n\x17\x42LOCK_HASH2BLOCK_HEIGHT\x10\x08\x12\x15\n\x11TRANSACTION_INDEX\x10\t\x12\x10\n\x0c\x43OMPAT_BLOCK\x10\n\x12\x0e\n\nFULL_BLOCK\x10\x0b\x12\n\n\x06\x42UTTON\x10\x0c\x32\x97\x01\n\x0eStorageService\x12-\n\x05Store\x12\x10.storage.Content\x1a\x12.common.StatusCode\x12\'\n\x04Load\x12\x0f.storage.ExtKey\x1a\x0e.storage.Value\x12-\n\x06\x44\x65lete\x12\x0f.storage.ExtKey\x1a\x12.common.StatusCodeb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -83,15 +83,25 @@ _REGIONS = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='BUTTON', index=10, number=10,
+      name='COMPAT_BLOCK', index=10, number=10,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FULL_BLOCK', index=11, number=11,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON', index=12, number=12,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=159,
-  serialized_end=361,
+  serialized_start=195,
+  serialized_end=431,
 )
 _sym_db.RegisterEnumDescriptor(_REGIONS)
 
@@ -106,7 +116,9 @@ RESULT = 6
 TRANSACTION_HASH2BLOCK_HEIGHT = 7
 BLOCK_HASH2BLOCK_HEIGHT = 8
 TRANSACTION_INDEX = 9
-BUTTON = 10
+COMPAT_BLOCK = 10
+FULL_BLOCK = 11
+BUTTON = 12
 
 
 
@@ -204,8 +216,15 @@ _VALUE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='storage.Value.value', index=0,
-      number=1, type=12, cpp_type=9, label=1,
+      name='status', full_name='storage.Value.status', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='storage.Value.value', index=1,
+      number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -223,9 +242,10 @@ _VALUE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=134,
-  serialized_end=156,
+  serialized_end=192,
 )
 
+_VALUE.fields_by_name['status'].message_type = common__pb2._STATUSCODE
 DESCRIPTOR.message_types_by_name['Content'] = _CONTENT
 DESCRIPTOR.message_types_by_name['ExtKey'] = _EXTKEY
 DESCRIPTOR.message_types_by_name['Value'] = _VALUE
@@ -262,8 +282,8 @@ _STORAGESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=364,
-  serialized_end=523,
+  serialized_start=434,
+  serialized_end=585,
   methods=[
   _descriptor.MethodDescriptor(
     name='Store',
@@ -271,7 +291,7 @@ _STORAGESERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_CONTENT,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -291,7 +311,7 @@ _STORAGESERVICE = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=_EXTKEY,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

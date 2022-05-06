@@ -18,12 +18,12 @@ class NetworkServiceStub(object):
         self.SendMsg = channel.unary_unary(
                 '/network.NetworkService/SendMsg',
                 request_serializer=network__pb2.NetworkMsg.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
         self.Broadcast = channel.unary_unary(
                 '/network.NetworkService/Broadcast',
                 request_serializer=network__pb2.NetworkMsg.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
         self.GetNetworkStatus = channel.unary_unary(
                 '/network.NetworkService/GetNetworkStatus',
@@ -33,7 +33,17 @@ class NetworkServiceStub(object):
         self.RegisterNetworkMsgHandler = channel.unary_unary(
                 '/network.NetworkService/RegisterNetworkMsgHandler',
                 request_serializer=network__pb2.RegisterInfo.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
+                )
+        self.AddNode = channel.unary_unary(
+                '/network.NetworkService/AddNode',
+                request_serializer=common__pb2.NodeNetInfo.SerializeToString,
+                response_deserializer=common__pb2.StatusCode.FromString,
+                )
+        self.GetPeersNetInfo = channel.unary_unary(
+                '/network.NetworkService/GetPeersNetInfo',
+                request_serializer=common__pb2.Empty.SerializeToString,
+                response_deserializer=common__pb2.TotalNodeNetInfo.FromString,
                 )
 
 
@@ -68,18 +78,32 @@ class NetworkServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddNode(self, request, context):
+        """add new node
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetPeersNetInfo(self, request, context):
+        """get peers net info
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NetworkServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SendMsg': grpc.unary_unary_rpc_method_handler(
                     servicer.SendMsg,
                     request_deserializer=network__pb2.NetworkMsg.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
             'Broadcast': grpc.unary_unary_rpc_method_handler(
                     servicer.Broadcast,
                     request_deserializer=network__pb2.NetworkMsg.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
             'GetNetworkStatus': grpc.unary_unary_rpc_method_handler(
                     servicer.GetNetworkStatus,
@@ -89,7 +113,17 @@ def add_NetworkServiceServicer_to_server(servicer, server):
             'RegisterNetworkMsgHandler': grpc.unary_unary_rpc_method_handler(
                     servicer.RegisterNetworkMsgHandler,
                     request_deserializer=network__pb2.RegisterInfo.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
+            ),
+            'AddNode': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddNode,
+                    request_deserializer=common__pb2.NodeNetInfo.FromString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
+            ),
+            'GetPeersNetInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPeersNetInfo,
+                    request_deserializer=common__pb2.Empty.FromString,
+                    response_serializer=common__pb2.TotalNodeNetInfo.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -114,7 +148,7 @@ class NetworkService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/network.NetworkService/SendMsg',
             network__pb2.NetworkMsg.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -131,7 +165,7 @@ class NetworkService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/network.NetworkService/Broadcast',
             network__pb2.NetworkMsg.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -165,7 +199,41 @@ class NetworkService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/network.NetworkService/RegisterNetworkMsgHandler',
             network__pb2.RegisterInfo.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddNode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/network.NetworkService/AddNode',
+            common__pb2.NodeNetInfo.SerializeToString,
+            common__pb2.StatusCode.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPeersNetInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/network.NetworkService/GetPeersNetInfo',
+            common__pb2.Empty.SerializeToString,
+            common__pb2.TotalNodeNetInfo.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -183,7 +251,7 @@ class NetworkMsgHandlerServiceStub(object):
         self.ProcessNetworkMsg = channel.unary_unary(
                 '/network.NetworkMsgHandlerService/ProcessNetworkMsg',
                 request_serializer=network__pb2.NetworkMsg.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
 
 
@@ -203,7 +271,7 @@ def add_NetworkMsgHandlerServiceServicer_to_server(servicer, server):
             'ProcessNetworkMsg': grpc.unary_unary_rpc_method_handler(
                     servicer.ProcessNetworkMsg,
                     request_deserializer=network__pb2.NetworkMsg.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -229,6 +297,6 @@ class NetworkMsgHandlerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/network.NetworkMsgHandlerService/ProcessNetworkMsg',
             network__pb2.NetworkMsg.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -3,7 +3,6 @@
 import grpc
 
 import common_pb2 as common__pb2
-import consensus_pb2 as consensus__pb2
 
 
 class ConsensusServiceStub(object):
@@ -17,13 +16,13 @@ class ConsensusServiceStub(object):
         """
         self.Reconfigure = channel.unary_unary(
                 '/consensus.ConsensusService/Reconfigure',
-                request_serializer=consensus__pb2.ConsensusConfiguration.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                request_serializer=common__pb2.ConsensusConfiguration.SerializeToString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
         self.CheckBlock = channel.unary_unary(
                 '/consensus.ConsensusService/CheckBlock',
                 request_serializer=common__pb2.ProposalWithProof.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
 
 
@@ -31,13 +30,15 @@ class ConsensusServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Reconfigure(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """/ reconfigure consensus status
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CheckBlock(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """/ check block validity
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -47,13 +48,13 @@ def add_ConsensusServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Reconfigure': grpc.unary_unary_rpc_method_handler(
                     servicer.Reconfigure,
-                    request_deserializer=consensus__pb2.ConsensusConfiguration.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    request_deserializer=common__pb2.ConsensusConfiguration.FromString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
             'CheckBlock': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckBlock,
                     request_deserializer=common__pb2.ProposalWithProof.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -77,8 +78,8 @@ class ConsensusService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/consensus.ConsensusService/Reconfigure',
-            consensus__pb2.ConsensusConfiguration.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.ConsensusConfiguration.SerializeToString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -95,6 +96,6 @@ class ConsensusService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/consensus.ConsensusService/CheckBlock',
             common__pb2.ProposalWithProof.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

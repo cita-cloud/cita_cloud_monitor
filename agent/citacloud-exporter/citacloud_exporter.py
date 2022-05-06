@@ -14,6 +14,7 @@ import sys
 import time
 import platform
 import prometheus_client
+import toml
 from prometheus_client.core import CollectorRegistry, Gauge
 from flask import Response, Flask
 import argparse
@@ -141,11 +142,9 @@ class GrpcWrapper():
 
     def get_node_address(self):
         """Get the Node Address"""
-        with open("%s/node_address" % (NODE_DATA_FOLDER)) as node_address_file:
-            node_address = node_address_file.read()
-            if (node_address.startswith("0x")):
-                node_address = hex(int(node_address, 16))
-            return node_address
+        with open("%s/config.toml" % (NODE_DATA_FOLDER)) as config_file:
+            res = toml.load(config_file)
+            return res['controller']['node_address']
 
 
 # flask object

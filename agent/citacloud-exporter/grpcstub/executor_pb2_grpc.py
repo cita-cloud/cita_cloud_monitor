@@ -18,8 +18,8 @@ class ExecutorServiceStub(object):
         """
         self.Exec = channel.unary_unary(
                 '/executor.ExecutorService/Exec',
-                request_serializer=blockchain__pb2.CompactBlock.SerializeToString,
-                response_deserializer=common__pb2.Hash.FromString,
+                request_serializer=blockchain__pb2.Block.SerializeToString,
+                response_deserializer=common__pb2.HashResponse.FromString,
                 )
         self.Call = channel.unary_unary(
                 '/executor.ExecutorService/Call',
@@ -49,8 +49,8 @@ def add_ExecutorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Exec': grpc.unary_unary_rpc_method_handler(
                     servicer.Exec,
-                    request_deserializer=blockchain__pb2.CompactBlock.FromString,
-                    response_serializer=common__pb2.Hash.SerializeToString,
+                    request_deserializer=blockchain__pb2.Block.FromString,
+                    response_serializer=common__pb2.HashResponse.SerializeToString,
             ),
             'Call': grpc.unary_unary_rpc_method_handler(
                     servicer.Call,
@@ -79,8 +79,8 @@ class ExecutorService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/executor.ExecutorService/Exec',
-            blockchain__pb2.CompactBlock.SerializeToString,
-            common__pb2.Hash.FromString,
+            blockchain__pb2.Block.SerializeToString,
+            common__pb2.HashResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

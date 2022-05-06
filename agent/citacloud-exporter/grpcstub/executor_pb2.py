@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x65xecutor.proto\x12\x08\x65xecutor\x1a\x0c\x63ommon.proto\x1a\x10\x62lockchain.proto\"E\n\x0b\x43\x61llRequest\x12\n\n\x02to\x18\x01 \x01(\x0c\x12\x0c\n\x04\x66rom\x18\x02 \x01(\x0c\x12\x0e\n\x06method\x18\x03 \x01(\x0c\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\x0c\"\x1d\n\x0c\x43\x61llResponse\x12\r\n\x05value\x18\x01 \x01(\x0c\x32x\n\x0f\x45xecutorService\x12.\n\x04\x45xec\x12\x18.blockchain.CompactBlock\x1a\x0c.common.Hash\x12\x35\n\x04\x43\x61ll\x12\x15.executor.CallRequest\x1a\x16.executor.CallResponseb\x06proto3'
+  serialized_pb=b'\n\x0e\x65xecutor.proto\x12\x08\x65xecutor\x1a\x0c\x63ommon.proto\x1a\x10\x62lockchain.proto\"E\n\x0b\x43\x61llRequest\x12\n\n\x02to\x18\x01 \x01(\x0c\x12\x0c\n\x04\x66rom\x18\x02 \x01(\x0c\x12\x0e\n\x06method\x18\x03 \x01(\x0c\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\x0c\"\x1d\n\x0c\x43\x61llResponse\x12\r\n\x05value\x18\x01 \x01(\x0c\x32y\n\x0f\x45xecutorService\x12/\n\x04\x45xec\x12\x11.blockchain.Block\x1a\x14.common.HashResponse\x12\x35\n\x04\x43\x61ll\x12\x15.executor.CallRequest\x1a\x16.executor.CallResponseb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,blockchain__pb2.DESCRIPTOR,])
 
@@ -140,15 +140,15 @@ _EXECUTORSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=162,
-  serialized_end=282,
+  serialized_end=283,
   methods=[
   _descriptor.MethodDescriptor(
     name='Exec',
     full_name='executor.ExecutorService.Exec',
     index=0,
     containing_service=None,
-    input_type=blockchain__pb2._COMPACTBLOCK,
-    output_type=common__pb2._HASH,
+    input_type=blockchain__pb2._BLOCK,
+    output_type=common__pb2._HASHRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

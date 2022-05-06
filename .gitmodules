@@ -16,3 +16,4 @@
 [submodule "agent/citacloud-exporter/cita_cloud_proto"]
 	path = agent/citacloud-exporter/cita_cloud_proto
 	url = https://github.com/cita-cloud/cita_cloud_proto.git
+	branch = master

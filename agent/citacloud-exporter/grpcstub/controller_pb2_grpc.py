@@ -23,8 +23,13 @@ class RPCServiceStub(object):
                 )
         self.SendRawTransaction = channel.unary_unary(
                 '/controller.RPCService/SendRawTransaction',
-                request_serializer=controller__pb2.RawTransaction.SerializeToString,
+                request_serializer=blockchain__pb2.RawTransaction.SerializeToString,
                 response_deserializer=common__pb2.Hash.FromString,
+                )
+        self.SendRawTransactions = channel.unary_unary(
+                '/controller.RPCService/SendRawTransactions',
+                request_serializer=blockchain__pb2.RawTransactions.SerializeToString,
+                response_deserializer=common__pb2.Hashes.FromString,
                 )
         self.GetBlockByHash = channel.unary_unary(
                 '/controller.RPCService/GetBlockByHash',
@@ -36,10 +41,15 @@ class RPCServiceStub(object):
                 request_serializer=controller__pb2.BlockNumber.SerializeToString,
                 response_deserializer=blockchain__pb2.CompactBlock.FromString,
                 )
+        self.GetBlockDetailByNumber = channel.unary_unary(
+                '/controller.RPCService/GetBlockDetailByNumber',
+                request_serializer=controller__pb2.BlockNumber.SerializeToString,
+                response_deserializer=blockchain__pb2.Block.FromString,
+                )
         self.GetTransaction = channel.unary_unary(
                 '/controller.RPCService/GetTransaction',
                 request_serializer=common__pb2.Hash.SerializeToString,
-                response_deserializer=controller__pb2.RawTransaction.FromString,
+                response_deserializer=blockchain__pb2.RawTransaction.FromString,
                 )
         self.GetSystemConfig = channel.unary_unary(
                 '/controller.RPCService/GetSystemConfig',
@@ -71,6 +81,16 @@ class RPCServiceStub(object):
                 request_serializer=common__pb2.Empty.SerializeToString,
                 response_deserializer=controller__pb2.PeerCount.FromString,
                 )
+        self.AddNode = channel.unary_unary(
+                '/controller.RPCService/AddNode',
+                request_serializer=common__pb2.NodeNetInfo.SerializeToString,
+                response_deserializer=common__pb2.StatusCode.FromString,
+                )
+        self.GetPeersInfo = channel.unary_unary(
+                '/controller.RPCService/GetPeersInfo',
+                request_serializer=common__pb2.Empty.SerializeToString,
+                response_deserializer=common__pb2.TotalNodeInfo.FromString,
+                )
 
 
 class RPCServiceServicer(object):
@@ -90,6 +110,12 @@ class RPCServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SendRawTransactions(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetBlockByHash(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -97,6 +123,12 @@ class RPCServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetBlockByNumber(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetBlockDetailByNumber(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -144,6 +176,20 @@ class RPCServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddNode(self, request, context):
+        """add new node
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetPeersInfo(self, request, context):
+        """get peers info
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RPCServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -154,8 +200,13 @@ def add_RPCServiceServicer_to_server(servicer, server):
             ),
             'SendRawTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.SendRawTransaction,
-                    request_deserializer=controller__pb2.RawTransaction.FromString,
+                    request_deserializer=blockchain__pb2.RawTransaction.FromString,
                     response_serializer=common__pb2.Hash.SerializeToString,
+            ),
+            'SendRawTransactions': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendRawTransactions,
+                    request_deserializer=blockchain__pb2.RawTransactions.FromString,
+                    response_serializer=common__pb2.Hashes.SerializeToString,
             ),
             'GetBlockByHash': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBlockByHash,
@@ -167,10 +218,15 @@ def add_RPCServiceServicer_to_server(servicer, server):
                     request_deserializer=controller__pb2.BlockNumber.FromString,
                     response_serializer=blockchain__pb2.CompactBlock.SerializeToString,
             ),
+            'GetBlockDetailByNumber': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBlockDetailByNumber,
+                    request_deserializer=controller__pb2.BlockNumber.FromString,
+                    response_serializer=blockchain__pb2.Block.SerializeToString,
+            ),
             'GetTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTransaction,
                     request_deserializer=common__pb2.Hash.FromString,
-                    response_serializer=controller__pb2.RawTransaction.SerializeToString,
+                    response_serializer=blockchain__pb2.RawTransaction.SerializeToString,
             ),
             'GetSystemConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSystemConfig,
@@ -201,6 +257,16 @@ def add_RPCServiceServicer_to_server(servicer, server):
                     servicer.GetPeerCount,
                     request_deserializer=common__pb2.Empty.FromString,
                     response_serializer=controller__pb2.PeerCount.SerializeToString,
+            ),
+            'AddNode': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddNode,
+                    request_deserializer=common__pb2.NodeNetInfo.FromString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
+            ),
+            'GetPeersInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPeersInfo,
+                    request_deserializer=common__pb2.Empty.FromString,
+                    response_serializer=common__pb2.TotalNodeInfo.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -241,8 +307,25 @@ class RPCService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.RPCService/SendRawTransaction',
-            controller__pb2.RawTransaction.SerializeToString,
+            blockchain__pb2.RawTransaction.SerializeToString,
             common__pb2.Hash.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendRawTransactions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/controller.RPCService/SendRawTransactions',
+            blockchain__pb2.RawTransactions.SerializeToString,
+            common__pb2.Hashes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -281,6 +364,23 @@ class RPCService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetBlockDetailByNumber(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/controller.RPCService/GetBlockDetailByNumber',
+            controller__pb2.BlockNumber.SerializeToString,
+            blockchain__pb2.Block.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetTransaction(request,
             target,
             options=(),
@@ -293,7 +393,7 @@ class RPCService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.RPCService/GetTransaction',
             common__pb2.Hash.SerializeToString,
-            controller__pb2.RawTransaction.FromString,
+            blockchain__pb2.RawTransaction.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -399,6 +499,40 @@ class RPCService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
+    @staticmethod
+    def AddNode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/controller.RPCService/AddNode',
+            common__pb2.NodeNetInfo.SerializeToString,
+            common__pb2.StatusCode.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPeersInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/controller.RPCService/GetPeersInfo',
+            common__pb2.Empty.SerializeToString,
+            common__pb2.TotalNodeInfo.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
 
 class Consensus2ControllerServiceStub(object):
     """Missing associated documentation comment in .proto file."""
@@ -412,17 +546,17 @@ class Consensus2ControllerServiceStub(object):
         self.GetProposal = channel.unary_unary(
                 '/controller.Consensus2ControllerService/GetProposal',
                 request_serializer=common__pb2.Empty.SerializeToString,
-                response_deserializer=common__pb2.Proposal.FromString,
+                response_deserializer=common__pb2.ProposalResponse.FromString,
                 )
         self.CheckProposal = channel.unary_unary(
                 '/controller.Consensus2ControllerService/CheckProposal',
                 request_serializer=common__pb2.Proposal.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
         self.CommitBlock = channel.unary_unary(
                 '/controller.Consensus2ControllerService/CommitBlock',
                 request_serializer=common__pb2.ProposalWithProof.SerializeToString,
-                response_deserializer=common__pb2.Empty.FromString,
+                response_deserializer=common__pb2.ConsensusConfigurationResponse.FromString,
                 )
 
 
@@ -459,17 +593,17 @@ def add_Consensus2ControllerServiceServicer_to_server(servicer, server):
             'GetProposal': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProposal,
                     request_deserializer=common__pb2.Empty.FromString,
-                    response_serializer=common__pb2.Proposal.SerializeToString,
+                    response_serializer=common__pb2.ProposalResponse.SerializeToString,
             ),
             'CheckProposal': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckProposal,
                     request_deserializer=common__pb2.Proposal.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
             'CommitBlock': grpc.unary_unary_rpc_method_handler(
                     servicer.CommitBlock,
                     request_deserializer=common__pb2.ProposalWithProof.FromString,
-                    response_serializer=common__pb2.Empty.SerializeToString,
+                    response_serializer=common__pb2.ConsensusConfigurationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -494,7 +628,7 @@ class Consensus2ControllerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.Consensus2ControllerService/GetProposal',
             common__pb2.Empty.SerializeToString,
-            common__pb2.Proposal.FromString,
+            common__pb2.ProposalResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -511,7 +645,7 @@ class Consensus2ControllerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.Consensus2ControllerService/CheckProposal',
             common__pb2.Proposal.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -528,6 +662,6 @@ class Consensus2ControllerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/controller.Consensus2ControllerService/CommitBlock',
             common__pb2.ProposalWithProof.SerializeToString,
-            common__pb2.Empty.FromString,
+            common__pb2.ConsensusConfigurationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+import blockchain_pb2 as blockchain__pb2
 import common_pb2 as common__pb2
 import kms_pb2 as kms__pb2
 
@@ -28,12 +29,12 @@ class KmsServiceStub(object):
         self.HashData = channel.unary_unary(
                 '/kms.KmsService/HashData',
                 request_serializer=kms__pb2.HashDataRequest.SerializeToString,
-                response_deserializer=kms__pb2.HashDataResponse.FromString,
+                response_deserializer=common__pb2.HashResponse.FromString,
                 )
         self.VerifyDataHash = channel.unary_unary(
                 '/kms.KmsService/VerifyDataHash',
                 request_serializer=kms__pb2.VerifyDataHashRequest.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
         self.SignMessage = channel.unary_unary(
                 '/kms.KmsService/SignMessage',
@@ -44,6 +45,11 @@ class KmsServiceStub(object):
                 '/kms.KmsService/RecoverSignature',
                 request_serializer=kms__pb2.RecoverSignatureRequest.SerializeToString,
                 response_deserializer=kms__pb2.RecoverSignatureResponse.FromString,
+                )
+        self.CheckTransactions = channel.unary_unary(
+                '/kms.KmsService/CheckTransactions',
+                request_serializer=blockchain__pb2.RawTransactions.SerializeToString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
 
 
@@ -92,6 +98,13 @@ class KmsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckTransactions(self, request, context):
+        """check transactions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_KmsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -108,12 +121,12 @@ def add_KmsServiceServicer_to_server(servicer, server):
             'HashData': grpc.unary_unary_rpc_method_handler(
                     servicer.HashData,
                     request_deserializer=kms__pb2.HashDataRequest.FromString,
-                    response_serializer=kms__pb2.HashDataResponse.SerializeToString,
+                    response_serializer=common__pb2.HashResponse.SerializeToString,
             ),
             'VerifyDataHash': grpc.unary_unary_rpc_method_handler(
                     servicer.VerifyDataHash,
                     request_deserializer=kms__pb2.VerifyDataHashRequest.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
             'SignMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.SignMessage,
@@ -124,6 +137,11 @@ def add_KmsServiceServicer_to_server(servicer, server):
                     servicer.RecoverSignature,
                     request_deserializer=kms__pb2.RecoverSignatureRequest.FromString,
                     response_serializer=kms__pb2.RecoverSignatureResponse.SerializeToString,
+            ),
+            'CheckTransactions': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckTransactions,
+                    request_deserializer=blockchain__pb2.RawTransactions.FromString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -182,7 +200,7 @@ class KmsService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/kms.KmsService/HashData',
             kms__pb2.HashDataRequest.SerializeToString,
-            kms__pb2.HashDataResponse.FromString,
+            common__pb2.HashResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -199,7 +217,7 @@ class KmsService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/kms.KmsService/VerifyDataHash',
             kms__pb2.VerifyDataHashRequest.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -234,5 +252,22 @@ class KmsService(object):
         return grpc.experimental.unary_unary(request, target, '/kms.KmsService/RecoverSignature',
             kms__pb2.RecoverSignatureRequest.SerializeToString,
             kms__pb2.RecoverSignatureResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckTransactions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/kms.KmsService/CheckTransactions',
+            blockchain__pb2.RawTransactions.SerializeToString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
