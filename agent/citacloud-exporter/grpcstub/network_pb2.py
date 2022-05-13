@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rnetwork.proto\x12\x07network\x1a\x0c\x63ommon.proto\"+\n\x15NetworkStatusResponse\x12\x12\n\npeer_count\x18\x01 \x01(\x04\"G\n\nNetworkMsg\x12\x0e\n\x06module\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06origin\x18\x03 \x01(\x04\x12\x0b\n\x03msg\x18\x04 \x01(\x0c\"C\n\x0cRegisterInfo\x12\x13\n\x0bmodule_name\x18\x01 \x01(\t\x12\x10\n\x08hostname\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\t2\x91\x02\n\x0eNetworkService\x12\x36\n\x07SendMsg\x12\x13.network.NetworkMsg\x1a\x16.common.SimpleResponse\x12\x38\n\tBroadcast\x12\x13.network.NetworkMsg\x1a\x16.common.SimpleResponse\x12\x41\n\x10GetNetworkStatus\x12\r.common.Empty\x1a\x1e.network.NetworkStatusResponse\x12J\n\x19RegisterNetworkMsgHandler\x12\x15.network.RegisterInfo\x1a\x16.common.SimpleResponse2\\\n\x18NetworkMsgHandlerService\x12@\n\x11ProcessNetworkMsg\x12\x13.network.NetworkMsg\x1a\x16.common.SimpleResponseb\x06proto3'
+  serialized_pb=b'\n\rnetwork.proto\x12\x07network\x1a\x0c\x63ommon.proto\"+\n\x15NetworkStatusResponse\x12\x12\n\npeer_count\x18\x01 \x01(\x04\"G\n\nNetworkMsg\x12\x0e\n\x06module\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06origin\x18\x03 \x01(\x04\x12\x0b\n\x03msg\x18\x04 \x01(\x0c\"C\n\x0cRegisterInfo\x12\x13\n\x0bmodule_name\x18\x01 \x01(\t\x12\x10\n\x08hostname\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\t2\xf5\x02\n\x0eNetworkService\x12\x32\n\x07SendMsg\x12\x13.network.NetworkMsg\x1a\x12.common.StatusCode\x12\x34\n\tBroadcast\x12\x13.network.NetworkMsg\x1a\x12.common.StatusCode\x12\x41\n\x10GetNetworkStatus\x12\r.common.Empty\x1a\x1e.network.NetworkStatusResponse\x12\x46\n\x19RegisterNetworkMsgHandler\x12\x15.network.RegisterInfo\x1a\x12.common.StatusCode\x12\x32\n\x07\x41\x64\x64Node\x12\x13.common.NodeNetInfo\x1a\x12.common.StatusCode\x12:\n\x0fGetPeersNetInfo\x12\r.common.Empty\x1a\x18.common.TotalNodeNetInfo2X\n\x18NetworkMsgHandlerService\x12<\n\x11ProcessNetworkMsg\x12\x13.network.NetworkMsg\x1a\x12.common.StatusCodeb\x06proto3'
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -193,7 +193,7 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=228,
-  serialized_end=501,
+  serialized_end=601,
   methods=[
   _descriptor.MethodDescriptor(
     name='SendMsg',
@@ -201,7 +201,7 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_NETWORKMSG,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -211,7 +211,7 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=_NETWORKMSG,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -231,7 +231,27 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_REGISTERINFO,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='AddNode',
+    full_name='network.NetworkService.AddNode',
+    index=4,
+    containing_service=None,
+    input_type=common__pb2._NODENETINFO,
+    output_type=common__pb2._STATUSCODE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetPeersNetInfo',
+    full_name='network.NetworkService.GetPeersNetInfo',
+    index=5,
+    containing_service=None,
+    input_type=common__pb2._EMPTY,
+    output_type=common__pb2._TOTALNODENETINFO,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -248,8 +268,8 @@ _NETWORKMSGHANDLERSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=503,
-  serialized_end=595,
+  serialized_start=603,
+  serialized_end=691,
   methods=[
   _descriptor.MethodDescriptor(
     name='ProcessNetworkMsg',
@@ -257,7 +277,7 @@ _NETWORKMSGHANDLERSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_NETWORKMSG,
-    output_type=common__pb2._SIMPLERESPONSE,
+    output_type=common__pb2._STATUSCODE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

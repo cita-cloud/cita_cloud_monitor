@@ -18,7 +18,7 @@ class StorageServiceStub(object):
         self.Store = channel.unary_unary(
                 '/storage.StorageService/Store',
                 request_serializer=storage__pb2.Content.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
         self.Load = channel.unary_unary(
                 '/storage.StorageService/Load',
@@ -28,7 +28,7 @@ class StorageServiceStub(object):
         self.Delete = channel.unary_unary(
                 '/storage.StorageService/Delete',
                 request_serializer=storage__pb2.ExtKey.SerializeToString,
-                response_deserializer=common__pb2.SimpleResponse.FromString,
+                response_deserializer=common__pb2.StatusCode.FromString,
                 )
 
 
@@ -62,7 +62,7 @@ def add_StorageServiceServicer_to_server(servicer, server):
             'Store': grpc.unary_unary_rpc_method_handler(
                     servicer.Store,
                     request_deserializer=storage__pb2.Content.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
             'Load': grpc.unary_unary_rpc_method_handler(
                     servicer.Load,
@@ -72,7 +72,7 @@ def add_StorageServiceServicer_to_server(servicer, server):
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
                     request_deserializer=storage__pb2.ExtKey.FromString,
-                    response_serializer=common__pb2.SimpleResponse.SerializeToString,
+                    response_serializer=common__pb2.StatusCode.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -97,7 +97,7 @@ class StorageService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/storage.StorageService/Store',
             storage__pb2.Content.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -131,6 +131,6 @@ class StorageService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/storage.StorageService/Delete',
             storage__pb2.ExtKey.SerializeToString,
-            common__pb2.SimpleResponse.FromString,
+            common__pb2.StatusCode.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

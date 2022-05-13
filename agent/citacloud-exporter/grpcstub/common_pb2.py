@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+import blockchain_pb2 as blockchain__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,42 +20,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0c\x63ommon.proto\x12\x06\x63ommon\"$\n\x0eSimpleResponse\x12\x12\n\nis_success\x18\x01 \x01(\x08\"\x07\n\x05\x45mpty\"\x14\n\x04Hash\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\"\x1a\n\x07\x41\x64\x64ress\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0c\"(\n\x08Proposal\x12\x0e\n\x06height\x18\x01 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"F\n\x11ProposalWithProof\x12\"\n\x08proposal\x18\x01 \x01(\x0b\x32\x10.common.Proposal\x12\r\n\x05proof\x18\x02 \x01(\x0c\x62\x06proto3'
-)
+  serialized_pb=b'\n\x0c\x63ommon.proto\x12\x06\x63ommon\x1a\x10\x62lockchain.proto\"\x07\n\x05\x45mpty\"\x14\n\x04Hash\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\"&\n\x06Hashes\x12\x1c\n\x06hashes\x18\x01 \x03(\x0b\x32\x0c.common.Hash\"\x1a\n\x07\x41\x64\x64ress\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0c\"(\n\x08Proposal\x12\x0e\n\x06height\x18\x01 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"F\n\x11ProposalWithProof\x12\"\n\x08proposal\x18\x01 \x01(\x0b\x32\x10.common.Proposal\x12\r\n\x05proof\x18\x02 \x01(\x0c\"]\n\x0b\x42\x46TProposal\x12\x16\n\x0epre_state_root\x18\x01 \x01(\x0c\x12\x11\n\tpre_proof\x18\x02 \x01(\x0c\x12#\n\x08proposal\x18\x03 \x01(\x0b\x32\x11.blockchain.Block\"G\n\x0cProposalEnum\x12+\n\x0c\x62\x66t_proposal\x18\x01 \x01(\x0b\x32\x13.common.BFTProposalH\x00\x42\n\n\x08proposal\"T\n\x16\x43onsensusConfiguration\x12\x0e\n\x06height\x18\x01 \x01(\x04\x12\x16\n\x0e\x62lock_interval\x18\x02 \x01(\r\x12\x12\n\nvalidators\x18\x03 \x03(\x0c\"\x1a\n\nStatusCode\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\"N\n\x0cHashResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.common.StatusCode\x12\x1a\n\x04hash\x18\x02 \x01(\x0b\x32\x0c.common.Hash\"Z\n\x10ProposalResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.common.StatusCode\x12\"\n\x08proposal\x18\x02 \x01(\x0b\x32\x10.common.Proposal\"t\n\x1e\x43onsensusConfigurationResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.common.StatusCode\x12.\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x1e.common.ConsensusConfiguration\"4\n\x0bNodeNetInfo\x12\x15\n\rmulti_address\x18\x01 \x01(\t\x12\x0e\n\x06origin\x18\x02 \x01(\x04\"6\n\x10TotalNodeNetInfo\x12\"\n\x05nodes\x18\x01 \x03(\x0b\x32\x13.common.NodeNetInfo\"B\n\x08NodeInfo\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0c\x12%\n\x08net_info\x18\x02 \x01(\x0b\x32\x13.common.NodeNetInfo\"0\n\rTotalNodeInfo\x12\x1f\n\x05nodes\x18\x01 \x03(\x0b\x32\x10.common.NodeInfob\x06proto3'
+  ,
+  dependencies=[blockchain__pb2.DESCRIPTOR,])
 
 
-
-
-_SIMPLERESPONSE = _descriptor.Descriptor(
-  name='SimpleResponse',
-  full_name='common.SimpleResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='is_success', full_name='common.SimpleResponse.is_success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=24,
-  serialized_end=60,
-)
 
 
 _EMPTY = _descriptor.Descriptor(
@@ -77,8 +47,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=62,
-  serialized_end=69,
+  serialized_start=42,
+  serialized_end=49,
 )
 
 
@@ -109,8 +79,40 @@ _HASH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=71,
-  serialized_end=91,
+  serialized_start=51,
+  serialized_end=71,
+)
+
+
+_HASHES = _descriptor.Descriptor(
+  name='Hashes',
+  full_name='common.Hashes',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hashes', full_name='common.Hashes.hashes', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=73,
+  serialized_end=111,
 )
 
 
@@ -141,8 +143,8 @@ _ADDRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=119,
+  serialized_start=113,
+  serialized_end=139,
 )
 
 
@@ -180,8 +182,8 @@ _PROPOSAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=121,
-  serialized_end=161,
+  serialized_start=141,
+  serialized_end=181,
 )
 
 
@@ -219,25 +221,464 @@ _PROPOSALWITHPROOF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=163,
-  serialized_end=233,
+  serialized_start=183,
+  serialized_end=253,
 )
 
+
+_BFTPROPOSAL = _descriptor.Descriptor(
+  name='BFTProposal',
+  full_name='common.BFTProposal',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pre_state_root', full_name='common.BFTProposal.pre_state_root', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pre_proof', full_name='common.BFTProposal.pre_proof', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proposal', full_name='common.BFTProposal.proposal', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=255,
+  serialized_end=348,
+)
+
+
+_PROPOSALENUM = _descriptor.Descriptor(
+  name='ProposalEnum',
+  full_name='common.ProposalEnum',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='bft_proposal', full_name='common.ProposalEnum.bft_proposal', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='proposal', full_name='common.ProposalEnum.proposal',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=350,
+  serialized_end=421,
+)
+
+
+_CONSENSUSCONFIGURATION = _descriptor.Descriptor(
+  name='ConsensusConfiguration',
+  full_name='common.ConsensusConfiguration',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='height', full_name='common.ConsensusConfiguration.height', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='block_interval', full_name='common.ConsensusConfiguration.block_interval', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='validators', full_name='common.ConsensusConfiguration.validators', index=2,
+      number=3, type=12, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=423,
+  serialized_end=507,
+)
+
+
+_STATUSCODE = _descriptor.Descriptor(
+  name='StatusCode',
+  full_name='common.StatusCode',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='common.StatusCode.code', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=509,
+  serialized_end=535,
+)
+
+
+_HASHRESPONSE = _descriptor.Descriptor(
+  name='HashResponse',
+  full_name='common.HashResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='common.HashResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='common.HashResponse.hash', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=537,
+  serialized_end=615,
+)
+
+
+_PROPOSALRESPONSE = _descriptor.Descriptor(
+  name='ProposalResponse',
+  full_name='common.ProposalResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='common.ProposalResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proposal', full_name='common.ProposalResponse.proposal', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=617,
+  serialized_end=707,
+)
+
+
+_CONSENSUSCONFIGURATIONRESPONSE = _descriptor.Descriptor(
+  name='ConsensusConfigurationResponse',
+  full_name='common.ConsensusConfigurationResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='common.ConsensusConfigurationResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='config', full_name='common.ConsensusConfigurationResponse.config', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=709,
+  serialized_end=825,
+)
+
+
+_NODENETINFO = _descriptor.Descriptor(
+  name='NodeNetInfo',
+  full_name='common.NodeNetInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='multi_address', full_name='common.NodeNetInfo.multi_address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='origin', full_name='common.NodeNetInfo.origin', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=827,
+  serialized_end=879,
+)
+
+
+_TOTALNODENETINFO = _descriptor.Descriptor(
+  name='TotalNodeNetInfo',
+  full_name='common.TotalNodeNetInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='nodes', full_name='common.TotalNodeNetInfo.nodes', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=881,
+  serialized_end=935,
+)
+
+
+_NODEINFO = _descriptor.Descriptor(
+  name='NodeInfo',
+  full_name='common.NodeInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='common.NodeInfo.address', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='net_info', full_name='common.NodeInfo.net_info', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=937,
+  serialized_end=1003,
+)
+
+
+_TOTALNODEINFO = _descriptor.Descriptor(
+  name='TotalNodeInfo',
+  full_name='common.TotalNodeInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='nodes', full_name='common.TotalNodeInfo.nodes', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1005,
+  serialized_end=1053,
+)
+
+_HASHES.fields_by_name['hashes'].message_type = _HASH
 _PROPOSALWITHPROOF.fields_by_name['proposal'].message_type = _PROPOSAL
-DESCRIPTOR.message_types_by_name['SimpleResponse'] = _SIMPLERESPONSE
+_BFTPROPOSAL.fields_by_name['proposal'].message_type = blockchain__pb2._BLOCK
+_PROPOSALENUM.fields_by_name['bft_proposal'].message_type = _BFTPROPOSAL
+_PROPOSALENUM.oneofs_by_name['proposal'].fields.append(
+  _PROPOSALENUM.fields_by_name['bft_proposal'])
+_PROPOSALENUM.fields_by_name['bft_proposal'].containing_oneof = _PROPOSALENUM.oneofs_by_name['proposal']
+_HASHRESPONSE.fields_by_name['status'].message_type = _STATUSCODE
+_HASHRESPONSE.fields_by_name['hash'].message_type = _HASH
+_PROPOSALRESPONSE.fields_by_name['status'].message_type = _STATUSCODE
+_PROPOSALRESPONSE.fields_by_name['proposal'].message_type = _PROPOSAL
+_CONSENSUSCONFIGURATIONRESPONSE.fields_by_name['status'].message_type = _STATUSCODE
+_CONSENSUSCONFIGURATIONRESPONSE.fields_by_name['config'].message_type = _CONSENSUSCONFIGURATION
+_TOTALNODENETINFO.fields_by_name['nodes'].message_type = _NODENETINFO
+_NODEINFO.fields_by_name['net_info'].message_type = _NODENETINFO
+_TOTALNODEINFO.fields_by_name['nodes'].message_type = _NODEINFO
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 DESCRIPTOR.message_types_by_name['Hash'] = _HASH
+DESCRIPTOR.message_types_by_name['Hashes'] = _HASHES
 DESCRIPTOR.message_types_by_name['Address'] = _ADDRESS
 DESCRIPTOR.message_types_by_name['Proposal'] = _PROPOSAL
 DESCRIPTOR.message_types_by_name['ProposalWithProof'] = _PROPOSALWITHPROOF
+DESCRIPTOR.message_types_by_name['BFTProposal'] = _BFTPROPOSAL
+DESCRIPTOR.message_types_by_name['ProposalEnum'] = _PROPOSALENUM
+DESCRIPTOR.message_types_by_name['ConsensusConfiguration'] = _CONSENSUSCONFIGURATION
+DESCRIPTOR.message_types_by_name['StatusCode'] = _STATUSCODE
+DESCRIPTOR.message_types_by_name['HashResponse'] = _HASHRESPONSE
+DESCRIPTOR.message_types_by_name['ProposalResponse'] = _PROPOSALRESPONSE
+DESCRIPTOR.message_types_by_name['ConsensusConfigurationResponse'] = _CONSENSUSCONFIGURATIONRESPONSE
+DESCRIPTOR.message_types_by_name['NodeNetInfo'] = _NODENETINFO
+DESCRIPTOR.message_types_by_name['TotalNodeNetInfo'] = _TOTALNODENETINFO
+DESCRIPTOR.message_types_by_name['NodeInfo'] = _NODEINFO
+DESCRIPTOR.message_types_by_name['TotalNodeInfo'] = _TOTALNODEINFO
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-SimpleResponse = _reflection.GeneratedProtocolMessageType('SimpleResponse', (_message.Message,), {
-  'DESCRIPTOR' : _SIMPLERESPONSE,
-  '__module__' : 'common_pb2'
-  # @@protoc_insertion_point(class_scope:common.SimpleResponse)
-  })
-_sym_db.RegisterMessage(SimpleResponse)
 
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   'DESCRIPTOR' : _EMPTY,
@@ -252,6 +693,13 @@ Hash = _reflection.GeneratedProtocolMessageType('Hash', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:common.Hash)
   })
 _sym_db.RegisterMessage(Hash)
+
+Hashes = _reflection.GeneratedProtocolMessageType('Hashes', (_message.Message,), {
+  'DESCRIPTOR' : _HASHES,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.Hashes)
+  })
+_sym_db.RegisterMessage(Hashes)
 
 Address = _reflection.GeneratedProtocolMessageType('Address', (_message.Message,), {
   'DESCRIPTOR' : _ADDRESS,
@@ -273,6 +721,83 @@ ProposalWithProof = _reflection.GeneratedProtocolMessageType('ProposalWithProof'
   # @@protoc_insertion_point(class_scope:common.ProposalWithProof)
   })
 _sym_db.RegisterMessage(ProposalWithProof)
+
+BFTProposal = _reflection.GeneratedProtocolMessageType('BFTProposal', (_message.Message,), {
+  'DESCRIPTOR' : _BFTPROPOSAL,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.BFTProposal)
+  })
+_sym_db.RegisterMessage(BFTProposal)
+
+ProposalEnum = _reflection.GeneratedProtocolMessageType('ProposalEnum', (_message.Message,), {
+  'DESCRIPTOR' : _PROPOSALENUM,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.ProposalEnum)
+  })
+_sym_db.RegisterMessage(ProposalEnum)
+
+ConsensusConfiguration = _reflection.GeneratedProtocolMessageType('ConsensusConfiguration', (_message.Message,), {
+  'DESCRIPTOR' : _CONSENSUSCONFIGURATION,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.ConsensusConfiguration)
+  })
+_sym_db.RegisterMessage(ConsensusConfiguration)
+
+StatusCode = _reflection.GeneratedProtocolMessageType('StatusCode', (_message.Message,), {
+  'DESCRIPTOR' : _STATUSCODE,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.StatusCode)
+  })
+_sym_db.RegisterMessage(StatusCode)
+
+HashResponse = _reflection.GeneratedProtocolMessageType('HashResponse', (_message.Message,), {
+  'DESCRIPTOR' : _HASHRESPONSE,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.HashResponse)
+  })
+_sym_db.RegisterMessage(HashResponse)
+
+ProposalResponse = _reflection.GeneratedProtocolMessageType('ProposalResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PROPOSALRESPONSE,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.ProposalResponse)
+  })
+_sym_db.RegisterMessage(ProposalResponse)
+
+ConsensusConfigurationResponse = _reflection.GeneratedProtocolMessageType('ConsensusConfigurationResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CONSENSUSCONFIGURATIONRESPONSE,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.ConsensusConfigurationResponse)
+  })
+_sym_db.RegisterMessage(ConsensusConfigurationResponse)
+
+NodeNetInfo = _reflection.GeneratedProtocolMessageType('NodeNetInfo', (_message.Message,), {
+  'DESCRIPTOR' : _NODENETINFO,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.NodeNetInfo)
+  })
+_sym_db.RegisterMessage(NodeNetInfo)
+
+TotalNodeNetInfo = _reflection.GeneratedProtocolMessageType('TotalNodeNetInfo', (_message.Message,), {
+  'DESCRIPTOR' : _TOTALNODENETINFO,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.TotalNodeNetInfo)
+  })
+_sym_db.RegisterMessage(TotalNodeNetInfo)
+
+NodeInfo = _reflection.GeneratedProtocolMessageType('NodeInfo', (_message.Message,), {
+  'DESCRIPTOR' : _NODEINFO,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.NodeInfo)
+  })
+_sym_db.RegisterMessage(NodeInfo)
+
+TotalNodeInfo = _reflection.GeneratedProtocolMessageType('TotalNodeInfo', (_message.Message,), {
+  'DESCRIPTOR' : _TOTALNODEINFO,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:common.TotalNodeInfo)
+  })
+_sym_db.RegisterMessage(TotalNodeInfo)
 
 
 # @@protoc_insertion_point(module_scope)

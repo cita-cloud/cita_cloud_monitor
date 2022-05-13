@@ -9,3 +9,4 @@ test/dummy/*
 grafana.db
 .#*
 grpc-venv
+.idea

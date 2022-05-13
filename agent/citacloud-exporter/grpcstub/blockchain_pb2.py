@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x62lockchain.proto\x12\nblockchain\"o\n\x0b\x42lockHeader\x12\x10\n\x08prevhash\x18\x01 \x01(\x0c\x12\x11\n\ttimestamp\x18\x02 \x01(\x04\x12\x0e\n\x06height\x18\x03 \x01(\x04\x12\x19\n\x11transactions_root\x18\x04 \x01(\x0c\x12\x10\n\x08proposer\x18\x05 \x01(\x0c\"\x92\x01\n\x0bTransaction\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\n\n\x02to\x18\x02 \x01(\x0c\x12\r\n\x05nonce\x18\x03 \x01(\t\x12\r\n\x05quota\x18\x04 \x01(\x04\x12\x19\n\x11valid_until_block\x18\x05 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x06 \x01(\x0c\x12\r\n\x05value\x18\x07 \x01(\x0c\x12\x10\n\x08\x63hain_id\x18\x08 \x01(\x0c\",\n\x07Witness\x12\x11\n\tsignature\x18\x01 \x01(\x0c\x12\x0e\n\x06sender\x18\x02 \x01(\x0c\"\x85\x01\n\x15UnverifiedTransaction\x12,\n\x0btransaction\x18\x01 \x01(\x0b\x32\x17.blockchain.Transaction\x12\x18\n\x10transaction_hash\x18\x02 \x01(\x0c\x12$\n\x07witness\x18\x03 \x01(\x0b\x32\x13.blockchain.Witness\"X\n\x0fUtxoTransaction\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\x13\n\x0bpre_tx_hash\x18\x02 \x01(\x0c\x12\x0e\n\x06output\x18\x03 \x01(\x0c\x12\x0f\n\x07lock_id\x18\x04 \x01(\x04\"\x8f\x01\n\x19UnverifiedUtxoTransaction\x12\x30\n\x0btransaction\x18\x01 \x01(\x0b\x32\x1b.blockchain.UtxoTransaction\x12\x18\n\x10transaction_hash\x18\x02 \x01(\x0c\x12&\n\twitnesses\x18\x03 \x03(\x0b\x32\x13.blockchain.Witness\"%\n\x10\x43ompactBlockBody\x12\x11\n\ttx_hashes\x18\x01 \x03(\x0c\"t\n\x0c\x43ompactBlock\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06header\x18\x02 \x01(\x0b\x32\x17.blockchain.BlockHeader\x12*\n\x04\x62ody\x18\x03 \x01(\x0b\x32\x1c.blockchain.CompactBlockBodyb\x06proto3'
+  serialized_pb=b'\n\x10\x62lockchain.proto\x12\nblockchain\"o\n\x0b\x42lockHeader\x12\x10\n\x08prevhash\x18\x01 \x01(\x0c\x12\x11\n\ttimestamp\x18\x02 \x01(\x04\x12\x0e\n\x06height\x18\x03 \x01(\x04\x12\x19\n\x11transactions_root\x18\x04 \x01(\x0c\x12\x10\n\x08proposer\x18\x05 \x01(\x0c\"\x92\x01\n\x0bTransaction\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\n\n\x02to\x18\x02 \x01(\x0c\x12\r\n\x05nonce\x18\x03 \x01(\t\x12\r\n\x05quota\x18\x04 \x01(\x04\x12\x19\n\x11valid_until_block\x18\x05 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x06 \x01(\x0c\x12\r\n\x05value\x18\x07 \x01(\x0c\x12\x10\n\x08\x63hain_id\x18\x08 \x01(\x0c\",\n\x07Witness\x12\x11\n\tsignature\x18\x01 \x01(\x0c\x12\x0e\n\x06sender\x18\x02 \x01(\x0c\"\x85\x01\n\x15UnverifiedTransaction\x12,\n\x0btransaction\x18\x01 \x01(\x0b\x32\x17.blockchain.Transaction\x12\x18\n\x10transaction_hash\x18\x02 \x01(\x0c\x12$\n\x07witness\x18\x03 \x01(\x0b\x32\x13.blockchain.Witness\"X\n\x0fUtxoTransaction\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\x13\n\x0bpre_tx_hash\x18\x02 \x01(\x0c\x12\x0e\n\x06output\x18\x03 \x01(\x0c\x12\x0f\n\x07lock_id\x18\x04 \x01(\x04\"\x8f\x01\n\x19UnverifiedUtxoTransaction\x12\x30\n\x0btransaction\x18\x01 \x01(\x0b\x32\x1b.blockchain.UtxoTransaction\x12\x18\n\x10transaction_hash\x18\x02 \x01(\x0c\x12&\n\twitnesses\x18\x03 \x03(\x0b\x32\x13.blockchain.Witness\";\n\x0fRawTransactions\x12(\n\x04\x62ody\x18\x01 \x03(\x0b\x32\x1a.blockchain.RawTransaction\"\x88\x01\n\x0eRawTransaction\x12\x36\n\tnormal_tx\x18\x01 \x01(\x0b\x32!.blockchain.UnverifiedTransactionH\x00\x12\x38\n\x07utxo_tx\x18\x02 \x01(\x0b\x32%.blockchain.UnverifiedUtxoTransactionH\x00\x42\x04\n\x02tx\"%\n\x10\x43ompactBlockBody\x12\x11\n\ttx_hashes\x18\x01 \x03(\x0c\"t\n\x0c\x43ompactBlock\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06header\x18\x02 \x01(\x0b\x32\x17.blockchain.BlockHeader\x12*\n\x04\x62ody\x18\x03 \x01(\x0b\x32\x1c.blockchain.CompactBlockBody\"{\n\x05\x42lock\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06header\x18\x02 \x01(\x0b\x32\x17.blockchain.BlockHeader\x12)\n\x04\x62ody\x18\x03 \x01(\x0b\x32\x1b.blockchain.RawTransactions\x12\r\n\x05proof\x18\x04 \x01(\x0c\x62\x06proto3'
 )
 
 
@@ -350,6 +350,82 @@ _UNVERIFIEDUTXOTRANSACTION = _descriptor.Descriptor(
 )
 
 
+_RAWTRANSACTIONS = _descriptor.Descriptor(
+  name='RawTransactions',
+  full_name='blockchain.RawTransactions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='body', full_name='blockchain.RawTransactions.body', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=712,
+  serialized_end=771,
+)
+
+
+_RAWTRANSACTION = _descriptor.Descriptor(
+  name='RawTransaction',
+  full_name='blockchain.RawTransaction',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='normal_tx', full_name='blockchain.RawTransaction.normal_tx', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='utxo_tx', full_name='blockchain.RawTransaction.utxo_tx', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='tx', full_name='blockchain.RawTransaction.tx',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=774,
+  serialized_end=910,
+)
+
+
 _COMPACTBLOCKBODY = _descriptor.Descriptor(
   name='CompactBlockBody',
   full_name='blockchain.CompactBlockBody',
@@ -377,8 +453,8 @@ _COMPACTBLOCKBODY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=712,
-  serialized_end=749,
+  serialized_start=912,
+  serialized_end=949,
 )
 
 
@@ -423,24 +499,91 @@ _COMPACTBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=751,
-  serialized_end=867,
+  serialized_start=951,
+  serialized_end=1067,
+)
+
+
+_BLOCK = _descriptor.Descriptor(
+  name='Block',
+  full_name='blockchain.Block',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='version', full_name='blockchain.Block.version', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='header', full_name='blockchain.Block.header', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='body', full_name='blockchain.Block.body', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proof', full_name='blockchain.Block.proof', index=3,
+      number=4, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1069,
+  serialized_end=1192,
 )
 
 _UNVERIFIEDTRANSACTION.fields_by_name['transaction'].message_type = _TRANSACTION
 _UNVERIFIEDTRANSACTION.fields_by_name['witness'].message_type = _WITNESS
 _UNVERIFIEDUTXOTRANSACTION.fields_by_name['transaction'].message_type = _UTXOTRANSACTION
 _UNVERIFIEDUTXOTRANSACTION.fields_by_name['witnesses'].message_type = _WITNESS
+_RAWTRANSACTIONS.fields_by_name['body'].message_type = _RAWTRANSACTION
+_RAWTRANSACTION.fields_by_name['normal_tx'].message_type = _UNVERIFIEDTRANSACTION
+_RAWTRANSACTION.fields_by_name['utxo_tx'].message_type = _UNVERIFIEDUTXOTRANSACTION
+_RAWTRANSACTION.oneofs_by_name['tx'].fields.append(
+  _RAWTRANSACTION.fields_by_name['normal_tx'])
+_RAWTRANSACTION.fields_by_name['normal_tx'].containing_oneof = _RAWTRANSACTION.oneofs_by_name['tx']
+_RAWTRANSACTION.oneofs_by_name['tx'].fields.append(
+  _RAWTRANSACTION.fields_by_name['utxo_tx'])
+_RAWTRANSACTION.fields_by_name['utxo_tx'].containing_oneof = _RAWTRANSACTION.oneofs_by_name['tx']
 _COMPACTBLOCK.fields_by_name['header'].message_type = _BLOCKHEADER
 _COMPACTBLOCK.fields_by_name['body'].message_type = _COMPACTBLOCKBODY
+_BLOCK.fields_by_name['header'].message_type = _BLOCKHEADER
+_BLOCK.fields_by_name['body'].message_type = _RAWTRANSACTIONS
 DESCRIPTOR.message_types_by_name['BlockHeader'] = _BLOCKHEADER
 DESCRIPTOR.message_types_by_name['Transaction'] = _TRANSACTION
 DESCRIPTOR.message_types_by_name['Witness'] = _WITNESS
 DESCRIPTOR.message_types_by_name['UnverifiedTransaction'] = _UNVERIFIEDTRANSACTION
 DESCRIPTOR.message_types_by_name['UtxoTransaction'] = _UTXOTRANSACTION
 DESCRIPTOR.message_types_by_name['UnverifiedUtxoTransaction'] = _UNVERIFIEDUTXOTRANSACTION
+DESCRIPTOR.message_types_by_name['RawTransactions'] = _RAWTRANSACTIONS
+DESCRIPTOR.message_types_by_name['RawTransaction'] = _RAWTRANSACTION
 DESCRIPTOR.message_types_by_name['CompactBlockBody'] = _COMPACTBLOCKBODY
 DESCRIPTOR.message_types_by_name['CompactBlock'] = _COMPACTBLOCK
+DESCRIPTOR.message_types_by_name['Block'] = _BLOCK
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 BlockHeader = _reflection.GeneratedProtocolMessageType('BlockHeader', (_message.Message,), {
@@ -485,6 +628,20 @@ UnverifiedUtxoTransaction = _reflection.GeneratedProtocolMessageType('Unverified
   })
 _sym_db.RegisterMessage(UnverifiedUtxoTransaction)
 
+RawTransactions = _reflection.GeneratedProtocolMessageType('RawTransactions', (_message.Message,), {
+  'DESCRIPTOR' : _RAWTRANSACTIONS,
+  '__module__' : 'blockchain_pb2'
+  # @@protoc_insertion_point(class_scope:blockchain.RawTransactions)
+  })
+_sym_db.RegisterMessage(RawTransactions)
+
+RawTransaction = _reflection.GeneratedProtocolMessageType('RawTransaction', (_message.Message,), {
+  'DESCRIPTOR' : _RAWTRANSACTION,
+  '__module__' : 'blockchain_pb2'
+  # @@protoc_insertion_point(class_scope:blockchain.RawTransaction)
+  })
+_sym_db.RegisterMessage(RawTransaction)
+
 CompactBlockBody = _reflection.GeneratedProtocolMessageType('CompactBlockBody', (_message.Message,), {
   'DESCRIPTOR' : _COMPACTBLOCKBODY,
   '__module__' : 'blockchain_pb2'
@@ -498,6 +655,13 @@ CompactBlock = _reflection.GeneratedProtocolMessageType('CompactBlock', (_messag
   # @@protoc_insertion_point(class_scope:blockchain.CompactBlock)
   })
 _sym_db.RegisterMessage(CompactBlock)
+
+Block = _reflection.GeneratedProtocolMessageType('Block', (_message.Message,), {
+  'DESCRIPTOR' : _BLOCK,
+  '__module__' : 'blockchain_pb2'
+  # @@protoc_insertion_point(class_scope:blockchain.Block)
+  })
+_sym_db.RegisterMessage(Block)
 
 
 # @@protoc_insertion_point(module_scope)
